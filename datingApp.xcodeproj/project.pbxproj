@@ -14,6 +14,10 @@
 		0D301CB42C48A064002F1BC8 /* datingAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D301CB32C48A064002F1BC8 /* datingAppTests.swift */; };
 		0D301CBE2C48A064002F1BC8 /* datingAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D301CBD2C48A064002F1BC8 /* datingAppUITests.swift */; };
 		0D301CC02C48A064002F1BC8 /* datingAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D301CBF2C48A064002F1BC8 /* datingAppUITestsLaunchTests.swift */; };
+		0D301CD62C48A164002F1BC8 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D301CD52C48A164002F1BC8 /* MainTabView.swift */; };
+		0D301CDA2C4E8D32002F1BC8 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D301CD92C4E8D32002F1BC8 /* CardView.swift */; };
+		0D301CDC2C4E909B002F1BC8 /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D301CDB2C4E909B002F1BC8 /* UserInfoView.swift */; };
+		0D301CDE2C4E9D50002F1BC8 /* SwipeActionIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D301CDD2C4E9D50002F1BC8 /* SwipeActionIndicatorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +48,10 @@
 		0D301CB92C48A064002F1BC8 /* datingAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = datingAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D301CBD2C48A064002F1BC8 /* datingAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = datingAppUITests.swift; sourceTree = "<group>"; };
 		0D301CBF2C48A064002F1BC8 /* datingAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = datingAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0D301CD52C48A164002F1BC8 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		0D301CD92C4E8D32002F1BC8 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		0D301CDB2C4E909B002F1BC8 /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
+		0D301CDD2C4E9D50002F1BC8 /* SwipeActionIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeActionIndicatorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,9 +102,13 @@
 		0D301CA12C48A062002F1BC8 /* datingApp */ = {
 			isa = PBXGroup;
 			children = (
-				0D301CA22C48A062002F1BC8 /* datingAppApp.swift */,
+				0D301CD72C4E8AE4002F1BC8 /* Shared */,
+				0D301CCC2C48A0BA002F1BC8 /* App */,
 				0D301CA42C48A062002F1BC8 /* ContentView.swift */,
+				0D301CCE2C48A0E5002F1BC8 /* Extensions */,
+				0D301CCD2C48A0D8002F1BC8 /* Core */,
 				0D301CA62C48A064002F1BC8 /* Assets.xcassets */,
+				0D301CCF2C48A0EC002F1BC8 /* Utils */,
 				0D301CA82C48A064002F1BC8 /* Preview Content */,
 			);
 			path = datingApp;
@@ -125,6 +137,94 @@
 				0D301CBF2C48A064002F1BC8 /* datingAppUITestsLaunchTests.swift */,
 			);
 			path = datingAppUITests;
+			sourceTree = "<group>";
+		};
+		0D301CCC2C48A0BA002F1BC8 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				0D301CA22C48A062002F1BC8 /* datingAppApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		0D301CCD2C48A0D8002F1BC8 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				0D301CD42C48A13D002F1BC8 /* Messaging */,
+				0D301CD32C48A136002F1BC8 /* Cards */,
+				0D301CD22C48A12B002F1BC8 /* Profile */,
+				0D301CD12C48A122002F1BC8 /* Search */,
+				0D301CD02C48A117002F1BC8 /* Tab */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		0D301CCE2C48A0E5002F1BC8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0D301CCF2C48A0EC002F1BC8 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		0D301CD02C48A117002F1BC8 /* Tab */ = {
+			isa = PBXGroup;
+			children = (
+				0D301CD52C48A164002F1BC8 /* MainTabView.swift */,
+			);
+			path = Tab;
+			sourceTree = "<group>";
+		};
+		0D301CD12C48A122002F1BC8 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		0D301CD22C48A12B002F1BC8 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		0D301CD32C48A136002F1BC8 /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				0D301CD82C4E8D13002F1BC8 /* Views */,
+			);
+			path = Cards;
+			sourceTree = "<group>";
+		};
+		0D301CD42C48A13D002F1BC8 /* Messaging */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Messaging;
+			sourceTree = "<group>";
+		};
+		0D301CD72C4E8AE4002F1BC8 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		0D301CD82C4E8D13002F1BC8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0D301CD92C4E8D32002F1BC8 /* CardView.swift */,
+				0D301CDB2C4E909B002F1BC8 /* UserInfoView.swift */,
+				0D301CDD2C4E9D50002F1BC8 /* SwipeActionIndicatorView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,7 +358,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D301CA52C48A062002F1BC8 /* ContentView.swift in Sources */,
+				0D301CDE2C4E9D50002F1BC8 /* SwipeActionIndicatorView.swift in Sources */,
 				0D301CA32C48A062002F1BC8 /* datingAppApp.swift in Sources */,
+				0D301CDA2C4E8D32002F1BC8 /* CardView.swift in Sources */,
+				0D301CD62C48A164002F1BC8 /* MainTabView.swift in Sources */,
+				0D301CDC2C4E909B002F1BC8 /* UserInfoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
