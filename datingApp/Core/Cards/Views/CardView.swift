@@ -8,19 +8,26 @@
 import SwiftUI
 
 struct CardView: View {
+    let sizeConstants = SizeConstants()
+    
     @State private var xOffset: CGFloat = 0
     @State private var degrees: Double = 0
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            Image(.pic4)
-                .resizable()
-                .scaledToFit()
+            ZStack (alignment: .top) {
+                Image(.pic4)
+                    .resizable()
+                    .scaledToFit()
+                
+                SwipeActionIndicatorView(xOffset: $xOffset, screenCutOff: sizeConstants.screenCutOff)
+
+            }
             
             UserInfoView()
                 .padding(.horizontal)
         }
-        .frame(width: cardWidth, height: cardHeight)
+        .frame(width: sizeConstants.cardWidth, height: sizeConstants.cardHeight)
         .clipShape(RoundedRectangle(cornerRadius: 10))
         .offset(x: xOffset)
         .rotationEffect(.degrees(degrees))
@@ -42,26 +49,13 @@ private extension CardView {
     func onDragEnded(_ value: _ChangedGesture<DragGesture>.Value) {
         let width = value.translation.width
         
-        if abs(width) <= abs(screenCutOff) {
+        if abs(width) <= abs(sizeConstants.screenCutOff) {
             xOffset = 0
             degrees = 0
         }
     }
 }
 
-private extension CardView {
-    var screenCutOff: CGFloat {
-        (UIScreen.main.bounds.width / 2) * 0.8
-    }
-    
-    var cardWidth: CGFloat {
-        UIScreen.main.bounds.width - 20
-    }
-    
-    var cardHeight: CGFloat {
-        UIScreen.main.bounds.height / 1.48
-    }
-}
 
 #Preview {
     CardView()
