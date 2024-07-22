@@ -23,6 +23,7 @@ struct SwipeActionIndicatorView: View {
                         .stroke(.green, lineWidth: 2)
                         .frame(width: 100, height: 48)
                 }
+            //negative -- float left
                 .rotationEffect(.degrees(-45))
                 .opacity(Double(xOffset / sizeConstants.screenCutOff))
             
@@ -37,6 +38,7 @@ struct SwipeActionIndicatorView: View {
                         .stroke(.red, lineWidth: 2)
                         .frame(width: 100, height: 48)
                 }
+                //positive float right
                 .rotationEffect(.degrees(45))
                 .opacity(Double(xOffset / sizeConstants.screenCutOff) * -1)
 
