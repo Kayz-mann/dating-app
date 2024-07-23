@@ -20,6 +20,7 @@
 		0D301CDE2C4E9D50002F1BC8 /* SwipeActionIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D301CDD2C4E9D50002F1BC8 /* SwipeActionIndicatorView.swift */; };
 		0D301CE12C4EA97A002F1BC8 /* SizeConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D301CE02C4EA97A002F1BC8 /* SizeConstants.swift */; };
 		0D301CE42C4F20C9002F1BC8 /* ImageScrollingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D301CE32C4F20C9002F1BC8 /* ImageScrollingView.swift */; };
+		0D301CE62C4FBEFB002F1BC8 /* CardImageIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D301CE52C4FBEFB002F1BC8 /* CardImageIndicatorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		0D301CDD2C4E9D50002F1BC8 /* SwipeActionIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeActionIndicatorView.swift; sourceTree = "<group>"; };
 		0D301CE02C4EA97A002F1BC8 /* SizeConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeConstants.swift; sourceTree = "<group>"; };
 		0D301CE32C4F20C9002F1BC8 /* ImageScrollingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScrollingView.swift; sourceTree = "<group>"; };
+		0D301CE52C4FBEFB002F1BC8 /* CardImageIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardImageIndicatorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +231,7 @@
 				0D301CDB2C4E909B002F1BC8 /* UserInfoView.swift */,
 				0D301CDD2C4E9D50002F1BC8 /* SwipeActionIndicatorView.swift */,
 				0D301CE32C4F20C9002F1BC8 /* ImageScrollingView.swift */,
+				0D301CE52C4FBEFB002F1BC8 /* CardImageIndicatorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				0D301CDE2C4E9D50002F1BC8 /* SwipeActionIndicatorView.swift in Sources */,
 				0D301CA32C48A062002F1BC8 /* datingAppApp.swift in Sources */,
 				0D301CDA2C4E8D32002F1BC8 /* CardView.swift in Sources */,
+				0D301CE62C4FBEFB002F1BC8 /* CardImageIndicatorView.swift in Sources */,
 				0D301CE12C4EA97A002F1BC8 /* SizeConstants.swift in Sources */,
 				0D301CD62C48A164002F1BC8 /* MainTabView.swift in Sources */,
 				0D301CE42C4F20C9002F1BC8 /* ImageScrollingView.swift in Sources */,

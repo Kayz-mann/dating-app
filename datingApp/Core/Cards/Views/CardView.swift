@@ -26,10 +26,15 @@ struct CardView: View {
             ZStack (alignment: .top) {
                 Image(mockImages[currentImageIndex])
                     .resizable()
+                    .cornerRadius(2)
                     .scaledToFit()
+                    .clipped()
+                    .aspectRatio(contentMode: .fill)
                     .overlay{
                         ImageScrollingView(imageCount: mockImages.count, currentImageIndex: $currentImageIndex)
                     }
+                
+                CardImageIndicatorView(currentImageIndex:currentImageIndex, imageCount: mockImages.count)
                 
                 SwipeActionIndicatorView(xOffset: $xOffset)
 
