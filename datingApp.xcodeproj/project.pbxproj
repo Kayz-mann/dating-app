@@ -21,6 +21,12 @@
 		0D301CE12C4EA97A002F1BC8 /* SizeConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D301CE02C4EA97A002F1BC8 /* SizeConstants.swift */; };
 		0D301CE42C4F20C9002F1BC8 /* ImageScrollingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D301CE32C4F20C9002F1BC8 /* ImageScrollingView.swift */; };
 		0D301CE62C4FBEFB002F1BC8 /* CardImageIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D301CE52C4FBEFB002F1BC8 /* CardImageIndicatorView.swift */; };
+		0D301CE82C4FFC5C002F1BC8 /* CardStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D301CE72C4FFC5C002F1BC8 /* CardStackView.swift */; };
+		0D301CEC2C4FFE9B002F1BC8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D301CEB2C4FFE9B002F1BC8 /* User.swift */; };
+		0D301CEF2C4FFF47002F1BC8 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D301CEE2C4FFF47002F1BC8 /* CardModel.swift */; };
+		0D301CF22C4FFFB7002F1BC8 /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D301CF12C4FFFB7002F1BC8 /* CardViewModel.swift */; };
+		0D301CF52C500056002F1BC8 /* CardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D301CF42C500056002F1BC8 /* CardService.swift */; };
+		0D301CF72C5026B9002F1BC8 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D301CF62C5026B9002F1BC8 /* MockData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +64,12 @@
 		0D301CE02C4EA97A002F1BC8 /* SizeConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeConstants.swift; sourceTree = "<group>"; };
 		0D301CE32C4F20C9002F1BC8 /* ImageScrollingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScrollingView.swift; sourceTree = "<group>"; };
 		0D301CE52C4FBEFB002F1BC8 /* CardImageIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardImageIndicatorView.swift; sourceTree = "<group>"; };
+		0D301CE72C4FFC5C002F1BC8 /* CardStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStackView.swift; sourceTree = "<group>"; };
+		0D301CEB2C4FFE9B002F1BC8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		0D301CEE2C4FFF47002F1BC8 /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
+		0D301CF12C4FFFB7002F1BC8 /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
+		0D301CF42C500056002F1BC8 /* CardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardService.swift; sourceTree = "<group>"; };
+		0D301CF62C5026B9002F1BC8 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +188,7 @@
 		0D301CCF2C48A0EC002F1BC8 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				0D301CF62C5026B9002F1BC8 /* MockData.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -205,6 +218,9 @@
 		0D301CD32C48A136002F1BC8 /* Cards */ = {
 			isa = PBXGroup;
 			children = (
+				0D301CF32C50003E002F1BC8 /* Service */,
+				0D301CF02C4FFFA4002F1BC8 /* ViewModel */,
+				0D301CED2C4FFF37002F1BC8 /* Model */,
 				0D301CD82C4E8D13002F1BC8 /* Views */,
 			);
 			path = Cards;
@@ -220,6 +236,7 @@
 		0D301CD72C4E8AE4002F1BC8 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				0D301CE92C4FFE7D002F1BC8 /* Users */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -232,6 +249,7 @@
 				0D301CDD2C4E9D50002F1BC8 /* SwipeActionIndicatorView.swift */,
 				0D301CE32C4F20C9002F1BC8 /* ImageScrollingView.swift */,
 				0D301CE52C4FBEFB002F1BC8 /* CardImageIndicatorView.swift */,
+				0D301CE72C4FFC5C002F1BC8 /* CardStackView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -242,6 +260,46 @@
 				0D301CE02C4EA97A002F1BC8 /* SizeConstants.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		0D301CE92C4FFE7D002F1BC8 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				0D301CEA2C4FFE87002F1BC8 /* Model */,
+			);
+			path = Users;
+			sourceTree = "<group>";
+		};
+		0D301CEA2C4FFE87002F1BC8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0D301CEB2C4FFE9B002F1BC8 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0D301CED2C4FFF37002F1BC8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0D301CEE2C4FFF47002F1BC8 /* CardModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0D301CF02C4FFFA4002F1BC8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0D301CF12C4FFFB7002F1BC8 /* CardViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0D301CF32C50003E002F1BC8 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				0D301CF42C500056002F1BC8 /* CardService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -375,14 +433,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D301CA52C48A062002F1BC8 /* ContentView.swift in Sources */,
+				0D301CF52C500056002F1BC8 /* CardService.swift in Sources */,
 				0D301CDE2C4E9D50002F1BC8 /* SwipeActionIndicatorView.swift in Sources */,
 				0D301CA32C48A062002F1BC8 /* datingAppApp.swift in Sources */,
+				0D301CF72C5026B9002F1BC8 /* MockData.swift in Sources */,
 				0D301CDA2C4E8D32002F1BC8 /* CardView.swift in Sources */,
 				0D301CE62C4FBEFB002F1BC8 /* CardImageIndicatorView.swift in Sources */,
+				0D301CEF2C4FFF47002F1BC8 /* CardModel.swift in Sources */,
+				0D301CE82C4FFC5C002F1BC8 /* CardStackView.swift in Sources */,
 				0D301CE12C4EA97A002F1BC8 /* SizeConstants.swift in Sources */,
+				0D301CF22C4FFFB7002F1BC8 /* CardViewModel.swift in Sources */,
 				0D301CD62C48A164002F1BC8 /* MainTabView.swift in Sources */,
 				0D301CE42C4F20C9002F1BC8 /* ImageScrollingView.swift in Sources */,
 				0D301CDC2C4E909B002F1BC8 /* UserInfoView.swift in Sources */,
+				0D301CEC2C4FFE9B002F1BC8 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
