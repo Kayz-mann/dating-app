@@ -46,6 +46,9 @@ struct CardView: View {
             UserInfoView(user: user)
                 .padding(.horizontal)
         }
+        .onReceive(viewModel.$buttonSwipeAction, perform: {action in
+        onReceiveSwipeAction(action)})
+        
         .frame(width: sizeConstants.cardWidth, height: sizeConstants.cardHeight)
         .clipShape(RoundedRectangle(cornerRadius: 10))
         .offset(x: xOffset)
@@ -76,18 +79,37 @@ private extension CardView {
     }
     
     func swipeRight() {
-        xOffset = 500
-        degrees = 12
-        
-        viewModel.removeCard(model)
+        withAnimation{
+            xOffset = 500
+            degrees = 12
+        } completion: {
+            viewModel.removeCard(model)
+        }
     }
     
     func swipeLeft() {
-        xOffset = -500
-        degrees = -12
-        
-        viewModel.removeCard(model)
+        withAnimation{
+            xOffset = -500
+            degrees = -12
+        } completion: {
+            viewModel.removeCard(model)
+        }
 
+    }
+    
+    func onReceiveSwipeAction(_ action: SwipeAction?) {
+        guard let action else { return }
+        
+        let topCard = viewModel.cardModels.last
+        
+        if topCard == model {
+            switch action {
+            case .reject:
+                swipeLeft()
+            case .like:
+                swipeRight()
+            }
+        }
     }
 }
 
