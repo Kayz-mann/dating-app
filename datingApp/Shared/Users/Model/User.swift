@@ -11,6 +11,7 @@ struct User: Identifiable, Hashable {
     let id: String
     let fullName: String
     var age: Int
+    var email: String
     var profileImageURLs: [String]
     
 }
