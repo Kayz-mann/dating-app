@@ -11,12 +11,13 @@ struct CardView: View {
     let sizeConstants = SizeConstants()
     let model: CardModel
     
-    @ObservedObject var viewModel: CardViewModel
-    
+    @ObservedObject var viewModel: CardViewModel    
     @State private var xOffset: CGFloat = 0
     @State private var degrees: Double = 0
     @State private var currentImageIndex = 0
     @State private var showProfileModal = false
+    @EnvironmentObject var matchManager : MatchManager
+
     
 //    @State private var mockImages = [
 //        "pic1",
@@ -88,6 +89,7 @@ private extension CardView {
             degrees = 12
         } completion: {
             viewModel.removeCard(model)
+            matchManager.checkForMatch(withUser: user)
         }
     }
     

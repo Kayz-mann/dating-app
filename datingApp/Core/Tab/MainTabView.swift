@@ -32,5 +32,5 @@ struct MainTabView: View {
 }
 
 #Preview {
-    MainTabView()
+    MainTabView().environmentObject(MatchManager())
 }
