@@ -34,6 +34,7 @@
 		0DF83CCE2C527EFC00F8C0A3 /* CurrentUserProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF83CCD2C527EFC00F8C0A3 /* CurrentUserProfileHeaderView.swift */; };
 		0DF83CD12C5287CA00F8C0A3 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF83CD02C5287CA00F8C0A3 /* EditProfileView.swift */; };
 		0DF83CD32C528B4E00F8C0A3 /* ProfileGridImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF83CD22C528B4E00F8C0A3 /* ProfileGridImageView.swift */; };
+		0DF83CD72C52970100F8C0A3 /* UserMatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF83CD62C52970100F8C0A3 /* UserMatchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		0DF83CCD2C527EFC00F8C0A3 /* CurrentUserProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserProfileHeaderView.swift; sourceTree = "<group>"; };
 		0DF83CD02C5287CA00F8C0A3 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		0DF83CD22C528B4E00F8C0A3 /* ProfileGridImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileGridImageView.swift; sourceTree = "<group>"; };
+		0DF83CD62C52970100F8C0A3 /* UserMatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMatchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +184,7 @@
 		0D301CCD2C48A0D8002F1BC8 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				0DF83CD42C5296CF00F8C0A3 /* Matches */,
 				0D301CD42C48A13D002F1BC8 /* Messaging */,
 				0D301CD32C48A136002F1BC8 /* Cards */,
 				0D301CD22C48A12B002F1BC8 /* Profile */,
@@ -347,6 +350,22 @@
 			path = EditProfile;
 			sourceTree = "<group>";
 		};
+		0DF83CD42C5296CF00F8C0A3 /* Matches */ = {
+			isa = PBXGroup;
+			children = (
+				0DF83CD52C5296F000F8C0A3 /* View */,
+			);
+			path = Matches;
+			sourceTree = "<group>";
+		};
+		0DF83CD52C5296F000F8C0A3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0DF83CD62C52970100F8C0A3 /* UserMatchView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -490,6 +509,7 @@
 				0D301CF72C5026B9002F1BC8 /* MockData.swift in Sources */,
 				0D301CDA2C4E8D32002F1BC8 /* CardView.swift in Sources */,
 				0D301CE62C4FBEFB002F1BC8 /* CardImageIndicatorView.swift in Sources */,
+				0DF83CD72C52970100F8C0A3 /* UserMatchView.swift in Sources */,
 				0D301CEF2C4FFF47002F1BC8 /* CardModel.swift in Sources */,
 				0D301CE82C4FFC5C002F1BC8 /* CardStackView.swift in Sources */,
 				0D301CE12C4EA97A002F1BC8 /* SizeConstants.swift in Sources */,
