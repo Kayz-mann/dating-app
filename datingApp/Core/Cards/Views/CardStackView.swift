@@ -11,16 +11,26 @@ struct CardStackView: View {
     @StateObject var viewModel = CardViewModel(service: CardService())
     
     var body: some View {
-        VStack(spacing: 16) {
-            ZStack {
-                ForEach(viewModel.cardModels) {card in
-                    CardView(model: card, viewModel: viewModel)
+        NavigationStack {
+            VStack(spacing: 16) {
+                ZStack {
+                    ForEach(viewModel.cardModels) {card in
+                        CardView(model: card, viewModel: viewModel)
+                    }
+                }
+                if(!viewModel.cardModels.isEmpty) {
+                    //if the cards have all been swiped remove the swipe action button
+                    SwipeActionButtonView(viewModel: viewModel)
                 }
             }
-            if(!viewModel.cardModels.isEmpty) {
-                //if the cards have all been swiped remove the swipe action button
-                SwipeActionButtonView(viewModel: viewModel)
-            }
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Image(.tinderLogo)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 88)
+                }
+        }
         }
 //        .onChange(of: viewModel.cardModels, {
 //            oldValue, newValue in 

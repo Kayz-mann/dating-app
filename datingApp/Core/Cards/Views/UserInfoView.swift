@@ -9,6 +9,7 @@ import SwiftUI
 
 struct UserInfoView: View {
     let user: User
+    @Binding var showProfileModal: Bool
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -24,7 +25,7 @@ struct UserInfoView: View {
                 Spacer()
         
                 Button {
-                    print("Text")
+                    showProfileModal.toggle()
                 } label: {
                     Image(systemName: "arrow.up.circle")
                         .fontWeight(.bold)
@@ -44,5 +45,5 @@ struct UserInfoView: View {
 }
 
 #Preview {
-    UserInfoView(user: MockData.users[1])
+    UserInfoView(user: MockData.users[1], showProfileModal: .constant(false))
 }

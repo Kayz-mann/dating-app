@@ -29,6 +29,8 @@
 		0D301CF72C5026B9002F1BC8 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D301CF62C5026B9002F1BC8 /* MockData.swift */; };
 		0D301CF92C514DA1002F1BC8 /* SwipeActionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D301CF82C514DA1002F1BC8 /* SwipeActionButtonView.swift */; };
 		0D301CFB2C51525F002F1BC8 /* SwipeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D301CFA2C51525F002F1BC8 /* SwipeAction.swift */; };
+		0DF83CC82C52683D00F8C0A3 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF83CC72C52683D00F8C0A3 /* UserProfileView.swift */; };
+		0DF83CCC2C527CFD00F8C0A3 /* CurrentUserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF83CCB2C527CFD00F8C0A3 /* CurrentUserProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,8 @@
 		0D301CF62C5026B9002F1BC8 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		0D301CF82C514DA1002F1BC8 /* SwipeActionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeActionButtonView.swift; sourceTree = "<group>"; };
 		0D301CFA2C51525F002F1BC8 /* SwipeAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeAction.swift; sourceTree = "<group>"; };
+		0DF83CC72C52683D00F8C0A3 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
+		0DF83CCB2C527CFD00F8C0A3 /* CurrentUserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +219,8 @@
 		0D301CD22C48A12B002F1BC8 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				0DF83CCA2C527CE900F8C0A3 /* CurrentUserProfile */,
+				0DF83CC92C527CD600F8C0A3 /* UserProfile */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -306,6 +312,22 @@
 				0D301CF42C500056002F1BC8 /* CardService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		0DF83CC92C527CD600F8C0A3 /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				0DF83CC72C52683D00F8C0A3 /* UserProfileView.swift */,
+			);
+			path = UserProfile;
+			sourceTree = "<group>";
+		};
+		0DF83CCA2C527CE900F8C0A3 /* CurrentUserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				0DF83CCB2C527CFD00F8C0A3 /* CurrentUserProfileView.swift */,
+			);
+			path = CurrentUserProfile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -439,6 +461,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D301CA52C48A062002F1BC8 /* ContentView.swift in Sources */,
+				0DF83CCC2C527CFD00F8C0A3 /* CurrentUserProfileView.swift in Sources */,
+				0DF83CC82C52683D00F8C0A3 /* UserProfileView.swift in Sources */,
 				0D301CF52C500056002F1BC8 /* CardService.swift in Sources */,
 				0D301CDE2C4E9D50002F1BC8 /* SwipeActionIndicatorView.swift in Sources */,
 				0D301CF92C514DA1002F1BC8 /* SwipeActionButtonView.swift in Sources */,
