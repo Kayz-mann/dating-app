@@ -29,13 +29,7 @@ struct CardView: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             ZStack (alignment: .top) {
-                Image(user.profileImageURLs[currentImageIndex])
-                    .resizable()
-                    .cornerRadius(2)
-                    .scaledToFill()
-                    .clipped()
-                    .frame(width: sizeConstants.cardWidth, height: sizeConstants.cardHeight)
-                    .aspectRatio(contentMode: .fill)
+                ImageLoader(url:  URL(string: user.profileImageURLs[currentImageIndex]), placeholder: Image(systemName: "photo"), errorImage: Image(systemName: "photo"), size: CGSize(width: sizeConstants.cardWidth, height: sizeConstants.cardHeight))
                     .overlay{
                         ImageScrollingView(imageCount: imageCount, currentImageIndex: $currentImageIndex)
                     }
