@@ -38,7 +38,6 @@ struct ImageLoader: View {
                     
                 @unknown default:
                     EmptyView()
-                    
                 }
             }
         } else {

@@ -22,5 +22,6 @@ struct User: Identifiable, Hashable, Codable {
     var matchedLikes: [User]?
     var interestedIn: String?
     var matchedUsers: [String]?
+    var likedUsers: [String]?
     
 }

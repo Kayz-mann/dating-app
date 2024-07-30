@@ -28,9 +28,12 @@ struct datingAppApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
     @StateObject var matchManager = MatchManager()
+    @StateObject var authService = AuthService()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(authService)
                 .environmentObject(matchManager)
         }
     }

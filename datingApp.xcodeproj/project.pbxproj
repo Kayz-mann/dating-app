@@ -51,6 +51,16 @@
 		0DF83CF72C53EDA700F8C0A3 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF83CF62C53EDA700F8C0A3 /* ImageLoader.swift */; };
 		0DF83CF82C53EDA700F8C0A3 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF83CF62C53EDA700F8C0A3 /* ImageLoader.swift */; };
 		0DF83CF92C53EDA700F8C0A3 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF83CF62C53EDA700F8C0A3 /* ImageLoader.swift */; };
+		0DF83CFB2C5470E500F8C0A3 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF83CFA2C5470E500F8C0A3 /* AuthService.swift */; };
+		0DF83CFC2C5470E500F8C0A3 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF83CFA2C5470E500F8C0A3 /* AuthService.swift */; };
+		0DF83CFD2C5470E500F8C0A3 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF83CFA2C5470E500F8C0A3 /* AuthService.swift */; };
+		0DF83CFF2C5475AE00F8C0A3 /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 0DF83CFE2C5475AE00F8C0A3 /* FirebaseAuthCombine-Community */; };
+		0DF83D042C58E58500F8C0A3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF83D032C58E58500F8C0A3 /* LoginView.swift */; };
+		0DF83D052C58E58500F8C0A3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF83D032C58E58500F8C0A3 /* LoginView.swift */; };
+		0DF83D062C58E58500F8C0A3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF83D032C58E58500F8C0A3 /* LoginView.swift */; };
+		0DF83D0C2C59180200F8C0A3 /* HeadlineTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF83D0B2C59180200F8C0A3 /* HeadlineTextView.swift */; };
+		0DF83D0D2C59180200F8C0A3 /* HeadlineTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF83D0B2C59180200F8C0A3 /* HeadlineTextView.swift */; };
+		0DF83D0E2C59180200F8C0A3 /* HeadlineTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF83D0B2C59180200F8C0A3 /* HeadlineTextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +115,9 @@
 		0DF83CD82C52A05A00F8C0A3 /* MatchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchManager.swift; sourceTree = "<group>"; };
 		0DF83CDE2C52FC1100F8C0A3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0DF83CF62C53EDA700F8C0A3 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		0DF83CFA2C5470E500F8C0A3 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		0DF83D032C58E58500F8C0A3 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		0DF83D0B2C59180200F8C0A3 /* HeadlineTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlineTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +134,7 @@
 				0DF83CE52C52FDD200F8C0A3 /* FirebaseAuth in Frameworks */,
 				0DF83CEF2C52FDEC00F8C0A3 /* FirebaseFirestoreSwift in Frameworks */,
 				0DF83CF52C52FE4100F8C0A3 /* FirebaseAnalytics in Frameworks */,
+				0DF83CFF2C5475AE00F8C0A3 /* FirebaseAuthCombine-Community in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +228,7 @@
 		0D301CCD2C48A0D8002F1BC8 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				0DF83D002C58E44300F8C0A3 /* Auth */,
 				0DF83CD42C5296CF00F8C0A3 /* Matches */,
 				0D301CD42C48A13D002F1BC8 /* Messaging */,
 				0D301CD32C48A136002F1BC8 /* Cards */,
@@ -405,6 +420,32 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		0DF83D002C58E44300F8C0A3 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				0DF83D022C58E57600F8C0A3 /* Views */,
+				0DF83D012C58E4C900F8C0A3 /* Service */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		0DF83D012C58E4C900F8C0A3 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				0DF83CFA2C5470E500F8C0A3 /* AuthService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		0DF83D022C58E57600F8C0A3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0DF83D032C58E58500F8C0A3 /* LoginView.swift */,
+				0DF83D0B2C59180200F8C0A3 /* HeadlineTextView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -431,6 +472,7 @@
 				0DF83CF02C52FDFE00F8C0A3 /* FirebaseMessaging */,
 				0DF83CF22C52FE3D00F8C0A3 /* FirebaseAnalyticsSwift */,
 				0DF83CF42C52FE4100F8C0A3 /* FirebaseAnalytics */,
+				0DF83CFE2C5475AE00F8C0A3 /* FirebaseAuthCombine-Community */,
 			);
 			productName = datingApp;
 			productReference = 0D301C9F2C48A062002F1BC8 /* datingApp.app */;
@@ -571,7 +613,10 @@
 				0D301CE82C4FFC5C002F1BC8 /* CardStackView.swift in Sources */,
 				0DF83CF72C53EDA700F8C0A3 /* ImageLoader.swift in Sources */,
 				0D301CE12C4EA97A002F1BC8 /* SizeConstants.swift in Sources */,
+				0DF83D0C2C59180200F8C0A3 /* HeadlineTextView.swift in Sources */,
+				0DF83CFB2C5470E500F8C0A3 /* AuthService.swift in Sources */,
 				0D301CF22C4FFFB7002F1BC8 /* CardViewModel.swift in Sources */,
+				0DF83D042C58E58500F8C0A3 /* LoginView.swift in Sources */,
 				0D301CD62C48A164002F1BC8 /* MainTabView.swift in Sources */,
 				0D301CE42C4F20C9002F1BC8 /* ImageScrollingView.swift in Sources */,
 				0D301CDC2C4E909B002F1BC8 /* UserInfoView.swift in Sources */,
@@ -584,7 +629,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DF83CFC2C5470E500F8C0A3 /* AuthService.swift in Sources */,
+				0DF83D0D2C59180200F8C0A3 /* HeadlineTextView.swift in Sources */,
 				0DF83CF82C53EDA700F8C0A3 /* ImageLoader.swift in Sources */,
+				0DF83D052C58E58500F8C0A3 /* LoginView.swift in Sources */,
 				0D301CB42C48A064002F1BC8 /* datingAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -594,8 +642,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D301CBE2C48A064002F1BC8 /* datingAppUITests.swift in Sources */,
+				0DF83D0E2C59180200F8C0A3 /* HeadlineTextView.swift in Sources */,
 				0D301CC02C48A064002F1BC8 /* datingAppUITestsLaunchTests.swift in Sources */,
 				0DF83CF92C53EDA700F8C0A3 /* ImageLoader.swift in Sources */,
+				0DF83D062C58E58500F8C0A3 /* LoginView.swift in Sources */,
+				0DF83CFD2C5470E500F8C0A3 /* AuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -959,6 +1010,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0DF83CE22C52FCFD00F8C0A3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAnalytics;
+		};
+		0DF83CFE2C5475AE00F8C0A3 /* FirebaseAuthCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0DF83CE22C52FCFD00F8C0A3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseAuthCombine-Community";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
