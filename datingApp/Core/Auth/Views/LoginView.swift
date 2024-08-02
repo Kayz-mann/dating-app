@@ -14,6 +14,7 @@ struct LoginView: View {
 
     @State private var errorMessage: String?
     @State private var alertItem: AlertItem?
+    @State private var isLoggedIn = false
         
  
     
@@ -87,6 +88,7 @@ struct LoginView: View {
                             switch result {
                             case .success:
                                 // Handle successful log-in
+                                isLoggedIn = true
                                 break
                             case .failure(let error):
                                 errorMessage = error.localizedDescription
@@ -148,7 +150,8 @@ struct LoginView: View {
 
                     }
                 }
-
+        }.onAppear{
+            isLoggedIn = true
         }
     }
 }
