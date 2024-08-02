@@ -9,9 +9,13 @@ import SwiftUI
 
 struct LoginView: View {
     @EnvironmentObject var authService: AuthService
-    @State private var email = ""
-    @State private var password = ""
+    @State private var authModel = UserAuthModel()
+    @FocusState private var focusTextField: FormTextField?
+
     @State private var errorMessage: String?
+    @State private var alertItem: AlertItem?
+        
+ 
     
     var body: some View {
         NavigationView {
@@ -34,7 +38,11 @@ struct LoginView: View {
                     Spacer()
                     
                     // Email and Password Fields
-                    TextField("Email", text: $email)
+                    TextField("Email", text: $authModel.email)
+                        .focused($focusTextField, equals: .email)
+                        .onSubmit {focusTextField = .password}
+                        .submitLabel(.next)
+                    
                         .keyboardType(.emailAddress)
                         .autocapitalization(.none)
                         .padding(.horizontal)
@@ -46,7 +54,11 @@ struct LoginView: View {
                         .frame(height: 50)
                         .padding()
                     
-                    SecureField("Password", text: $password)
+                    SecureField("Password", text: $authModel.password)
+                        .focused($focusTextField, equals: .password)
+                        .onSubmit {focusTextField = nil}
+                        .submitLabel(.continue)
+
                         .autocapitalization(.none)
                         .padding(.horizontal)
                         .padding(.vertical, 14)
@@ -66,13 +78,16 @@ struct LoginView: View {
                     
                     // Log In Button
                     Button("Log In") {
-                        authService.logIn(email: email, password: password) { result in
+                        authService.logIn(email: authModel.email, password: authModel.password) { result in
                             switch result {
                             case .success:
                                 // Handle successful log-in
                                 break
                             case .failure(let error):
                                 errorMessage = error.localizedDescription
+                                // Convert error to ErrorModel and display corresponding alert
+                                let errorModel = error as? ErrorModel ?? .invalidLogin
+                                alertItem = AlertContext.alert(for: errorModel)
                             }
                         }
                     }
@@ -85,6 +100,13 @@ struct LoginView: View {
                     )
                     .cornerRadius(20)
                     .padding()
+                    .alert(item: $alertItem) {alertItem in
+                        Alert(
+                            title: alertItem.title,
+                            message: alertItem.message,
+                            dismissButton: alertItem.dismissButton
+                        )
+                    }
                     
                     Spacer()
                     Spacer() // Pushes everything up
