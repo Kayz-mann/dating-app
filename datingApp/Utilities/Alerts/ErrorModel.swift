@@ -7,7 +7,8 @@
 
 import Foundation
 
-enum ErrorModel: Error {
+enum ErrorModel: Error, LocalizedError {
     case invalidEmailOrPassword
     case invalidLogin
+    case emptyLoginField
 }

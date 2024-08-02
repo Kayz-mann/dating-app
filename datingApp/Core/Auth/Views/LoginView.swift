@@ -78,6 +78,11 @@ struct LoginView: View {
                     
                     // Log In Button
                     Button("Log In") {
+                        //validate email and password
+                        if authModel.email.isEmpty || authModel.password.isEmpty {
+                           return alertItem = AlertContext.emptyLoginField
+                        }
+                        
                         authService.logIn(email: authModel.email, password: authModel.password) { result in
                             switch result {
                             case .success:
