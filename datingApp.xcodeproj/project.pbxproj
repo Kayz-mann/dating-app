@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		0D13A2362C5D11440073DA7A /* ErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D13A2352C5D11440073DA7A /* ErrorModel.swift */; };
 		0D13A2382C5D12350073DA7A /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D13A2372C5D12350073DA7A /* Alert.swift */; };
+		0D13A23A2C5E5F0E0073DA7A /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D13A2392C5E5F0E0073DA7A /* SignUpView.swift */; };
+		0D13A23C2C60EC6F0073DA7A /* TellUsMoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D13A23B2C60EC6F0073DA7A /* TellUsMoreView.swift */; };
+		0D13A2402C610E400073DA7A /* AgePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D13A23F2C610E400073DA7A /* AgePicker.swift */; };
+		0D13A2422C612DC90073DA7A /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D13A2412C612DC90073DA7A /* ImagePicker.swift */; };
+		0D13A2442C612FF60073DA7A /* ImageGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D13A2432C612FF60073DA7A /* ImageGridView.swift */; };
 		0D301CA32C48A062002F1BC8 /* datingAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D301CA22C48A062002F1BC8 /* datingAppApp.swift */; };
 		0D301CA52C48A062002F1BC8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D301CA42C48A062002F1BC8 /* ContentView.swift */; };
 		0D301CA72C48A064002F1BC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D301CA62C48A064002F1BC8 /* Assets.xcassets */; };
@@ -88,6 +93,11 @@
 /* Begin PBXFileReference section */
 		0D13A2352C5D11440073DA7A /* ErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorModel.swift; sourceTree = "<group>"; };
 		0D13A2372C5D12350073DA7A /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		0D13A2392C5E5F0E0073DA7A /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		0D13A23B2C60EC6F0073DA7A /* TellUsMoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TellUsMoreView.swift; sourceTree = "<group>"; };
+		0D13A23F2C610E400073DA7A /* AgePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgePicker.swift; sourceTree = "<group>"; };
+		0D13A2412C612DC90073DA7A /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		0D13A2432C612FF60073DA7A /* ImageGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGridView.swift; sourceTree = "<group>"; };
 		0D301C9F2C48A062002F1BC8 /* datingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = datingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D301CA22C48A062002F1BC8 /* datingAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = datingAppApp.swift; sourceTree = "<group>"; };
 		0D301CA42C48A062002F1BC8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -180,6 +190,23 @@
 			path = Alerts;
 			sourceTree = "<group>";
 		};
+		0D13A23D2C610E100073DA7A /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				0D13A23E2C610E210073DA7A /* Picker */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		0D13A23E2C610E210073DA7A /* Picker */ = {
+			isa = PBXGroup;
+			children = (
+				0D13A23F2C610E400073DA7A /* AgePicker.swift */,
+				0D13A2412C612DC90073DA7A /* ImagePicker.swift */,
+			);
+			path = Picker;
+			sourceTree = "<group>";
+		};
 		0D301C962C48A062002F1BC8 = {
 			isa = PBXGroup;
 			children = (
@@ -246,6 +273,7 @@
 		0D301CCC2C48A0BA002F1BC8 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				0D13A23D2C610E100073DA7A /* Components */,
 				0D301CA22C48A062002F1BC8 /* datingAppApp.swift */,
 			);
 			path = App;
@@ -469,6 +497,9 @@
 			children = (
 				0DF83D032C58E58500F8C0A3 /* LoginView.swift */,
 				0DF83D0B2C59180200F8C0A3 /* HeadlineTextView.swift */,
+				0D13A2392C5E5F0E0073DA7A /* SignUpView.swift */,
+				0D13A23B2C60EC6F0073DA7A /* TellUsMoreView.swift */,
+				0D13A2432C612FF60073DA7A /* ImageGridView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -629,6 +660,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D13A23C2C60EC6F0073DA7A /* TellUsMoreView.swift in Sources */,
 				0D13A2362C5D11440073DA7A /* ErrorModel.swift in Sources */,
 				0DF83CD12C5287CA00F8C0A3 /* EditProfileView.swift in Sources */,
 				0D301CA52C48A062002F1BC8 /* ContentView.swift in Sources */,
@@ -645,6 +677,7 @@
 				0D301CE62C4FBEFB002F1BC8 /* CardImageIndicatorView.swift in Sources */,
 				0DF83CD92C52A05A00F8C0A3 /* MatchManager.swift in Sources */,
 				0DF83CD72C52970100F8C0A3 /* UserMatchView.swift in Sources */,
+				0D13A2422C612DC90073DA7A /* ImagePicker.swift in Sources */,
 				0D301CEF2C4FFF47002F1BC8 /* CardModel.swift in Sources */,
 				0D301CE82C4FFC5C002F1BC8 /* CardStackView.swift in Sources */,
 				0DF83CF72C53EDA700F8C0A3 /* ImageLoader.swift in Sources */,
@@ -657,6 +690,9 @@
 				0DF83D042C58E58500F8C0A3 /* LoginView.swift in Sources */,
 				0D301CD62C48A164002F1BC8 /* MainTabView.swift in Sources */,
 				0D301CE42C4F20C9002F1BC8 /* ImageScrollingView.swift in Sources */,
+				0D13A2442C612FF60073DA7A /* ImageGridView.swift in Sources */,
+				0D13A2402C610E400073DA7A /* AgePicker.swift in Sources */,
+				0D13A23A2C5E5F0E0073DA7A /* SignUpView.swift in Sources */,
 				0D301CDC2C4E909B002F1BC8 /* UserInfoView.swift in Sources */,
 				0DF83CD32C528B4E00F8C0A3 /* ProfileGridImageView.swift in Sources */,
 				0D301CEC2C4FFE9B002F1BC8 /* User.swift in Sources */,

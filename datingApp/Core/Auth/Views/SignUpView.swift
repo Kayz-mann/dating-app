@@ -1,22 +1,21 @@
 //
-//  LoginView.swift
+//  SignUpView.swift
 //  datingApp
 //
-//  Created by Balogun Kayode on 30/07/2024.
+//  Created by Balogun Kayode on 03/08/2024.
 //
 
 import SwiftUI
 
-struct LoginView: View {
+struct SignUpView: View {
     @EnvironmentObject var authService: AuthService
     @State private var authModel = UserAuthModel()
     @FocusState private var focusTextField: FormTextField?
 
     @State private var errorMessage: String?
     @State private var alertItem: AlertItem?
-    @State private var isLoggedIn = false
-        
- 
+    @State private var isSignedUp = false
+    
     
     var body: some View {
         NavigationStack {
@@ -78,25 +77,30 @@ struct LoginView: View {
                     }
                     
                     // Log In Button
-                    Button("Log In") {
+                    Button("Sign Up") {
                         //validate email and password
-                        if authModel.email.isEmpty || authModel.password.isEmpty {
-                           return alertItem = AlertContext.emptyLoginField
-                        }
+//                        if authModel.email.isEmpty || authModel.password.isEmpty {
+//                           return alertItem = AlertContext.emptyLoginField
+//                        }
                         
-                        authService.logIn(email: authModel.email, password: authModel.password) { result in
-                            switch result {
-                            case .success:
-                                // Handle successful log-in
-                                isLoggedIn = true
-                                break
-                            case .failure(let error):
-                                errorMessage = error.localizedDescription
-                                // Convert error to ErrorModel and display corresponding alert
-                                let errorModel = error as? ErrorModel ?? .invalidLogin
-                                alertItem = AlertContext.alert(for: errorModel)
-                            }
-                        }
+                        isSignedUp = true
+
+                        
+//                        authService.signUp(email: authModel.email, password: authModel.password) { result in
+//                            switch result {
+//                            case .success:
+//                                // Handle successful log-in
+//                                isSignedUp = true
+////                                NavigationLink(<#LocalizedStringKey#>, destination: MainTabView())
+//                                
+//                                break
+//                            case .failure(let error):
+//                                errorMessage = error.localizedDescription
+//                                // Convert error to ErrorModel and display corresponding alert
+//                                let errorModel = error as? ErrorModel ?? .invalidLogin
+//                                alertItem = AlertContext.alert(for: errorModel)
+//                            }
+//                        }
                     }
                     .frame(minWidth: 320)
                     .foregroundColor(.white)
@@ -119,45 +123,21 @@ struct LoginView: View {
                     Spacer() // Pushes everything up
                 }
                 
-                // Sign Up Button
-                VStack {
-                    Spacer()
-                    HStack {
-                        Spacer()
-                        NavigationLink(destination: SignUpView()) {
-                            HStack{
-                                Text("Sign Up")
-                                    .frame(width: 100)
-                                    .foregroundColor(.white)
-                                    .background(Color.primaryPink)
-                                    .clipShape(RoundedRectangle(cornerRadius: 20))
-                                Image(systemName: "arrow.right")
-                                // SF Symbol for the arrow
-                                    .frame(width: 20, height: 20)
-                                    .foregroundColor(.white)
-                                    .font(.title)
-                                    .padding()
-                                
-                            }
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 20)
-                                    .stroke(Color.white, lineWidth: 0.5)
-                            )
-
-                        }
-                    }
-                    .padding()
-
-                    }
-                    .navigationBarHidden(true)
-                }
+                // Navigation to "Tell Us More About Yourself" screen
+                  NavigationLink(
+                      destination: TellUsMoreView(),
+                      isActive: $isSignedUp
+                  ) {
+                      EmptyView()
+                  }
+                
+            }
         }
+        .tint(.white)
+
     }
 }
 
 #Preview {
-    LoginView()
+    SignUpView()
 }
-
-
-
