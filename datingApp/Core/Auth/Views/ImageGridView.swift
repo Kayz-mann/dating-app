@@ -14,7 +14,11 @@ struct ImageGridView: View {
     private let maxImages = 6
 
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
+            Text("Select one or more images")
+                .font(.footnote)
+                .padding(.vertical)
+            
             LazyVGrid(columns: columns, spacing: 16) {
                 ForEach(0 ..< maxImages, id: \.self) { index in
                     if index < profileImageURLs.count {
