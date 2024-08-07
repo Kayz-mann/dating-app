@@ -11,7 +11,7 @@ import FirebaseFirestore
 
 struct User: Identifiable, Hashable, Codable {
     @DocumentID var id: String?
-    let fullName: String
+    var fullName: String
     var age: Int
     var email: String
     var profileImageURLs: [String]

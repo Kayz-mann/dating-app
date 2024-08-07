@@ -7,9 +7,12 @@
 
 import SwiftUI
 
+
 struct CardStackView: View {
     @State private var showMatchView = false
-    @EnvironmentObject var matchManager : MatchManager
+    @EnvironmentObject var matchManager: MatchManager
+    @EnvironmentObject var authService: AuthService
+
     @StateObject var viewModel = CardViewModel(service: CardService())
     
     var body: some View {
@@ -17,12 +20,12 @@ struct CardStackView: View {
             ZStack {
                 VStack(spacing: 16) {
                     ZStack {
-                        ForEach(viewModel.cardModels) {card in
+                        ForEach(viewModel.cardModels) { card in
                             CardView(model: card, viewModel: viewModel)
                         }
                     }
-                    if(!viewModel.cardModels.isEmpty) {
-                        //if the cards have all been swiped remove the swipe action button
+                    if !viewModel.cardModels.isEmpty {
+                        // If the cards have all been swiped, remove the swipe action button
                         SwipeActionButtonView(viewModel: viewModel)
                     }
                 }
@@ -33,26 +36,33 @@ struct CardStackView: View {
                 }
             }
             .animation(.easeInOut, value: showMatchView)
-            .onReceive(matchManager.$matchedUser, perform: {user in
+            .onReceive(matchManager.$matchedUser, perform: { user in
                 showMatchView = user != nil
             })
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    Image(.tinderLogo)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 88)
+                    Button(action: signOut) {
+                        Image(.tinderLogo)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 88)
+                    }
                 }
-
-        
             }
         }
-        //        .onChange(of: viewModel.cardModels, {
-        //            oldValue, newValue in
-        //            print("DEBUG: Old value count is \(oldValue.count)")
-        //            print("DEBUG: New value count is \(newValue.count)")
-        //
-        //        })
+    }
+    
+    private func signOut() {
+        authService.logOut { result in
+            switch result {
+            case .success:
+                print("Successfully signed out")
+        
+            case .failure(let error):
+                print("Sign-out failed: \(error.localizedDescription)")
+                // Handle sign-out failure, e.g., display an alert
+            }
+        }
     }
 }
 

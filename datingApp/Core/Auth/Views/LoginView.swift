@@ -15,9 +15,7 @@ struct LoginView: View {
     @State private var errorMessage: String?
     @State private var alertItem: AlertItem?
     @State private var isLoggedIn = false
-        
- 
-    
+
     var body: some View {
         NavigationStack {
             ZStack {
@@ -41,9 +39,8 @@ struct LoginView: View {
                     // Email and Password Fields
                     TextField("Email", text: $authModel.email)
                         .focused($focusTextField, equals: .email)
-                        .onSubmit {focusTextField = .password}
+                        .onSubmit { focusTextField = .password }
                         .submitLabel(.next)
-                    
                         .keyboardType(.emailAddress)
                         .autocapitalization(.none)
                         .padding(.horizontal)
@@ -57,9 +54,8 @@ struct LoginView: View {
                     
                     SecureField("Password", text: $authModel.password)
                         .focused($focusTextField, equals: .password)
-                        .onSubmit {focusTextField = nil}
+                        .onSubmit { focusTextField = nil }
                         .submitLabel(.continue)
-
                         .autocapitalization(.none)
                         .padding(.horizontal)
                         .padding(.vertical, 14)
@@ -78,10 +74,11 @@ struct LoginView: View {
                     }
                     
                     // Log In Button
-                    Button("Log In") {
-                        //validate email and password
+                    Button(action: {
+                        // Validate email and password
                         if authModel.email.isEmpty || authModel.password.isEmpty {
-                           return alertItem = AlertContext.emptyLoginField
+                            alertItem = AlertContext.emptyLoginField
+                            return
                         }
                         
                         authService.logIn(email: authModel.email, password: authModel.password) { result in
@@ -92,11 +89,12 @@ struct LoginView: View {
                                 break
                             case .failure(let error):
                                 errorMessage = error.localizedDescription
-                                // Convert error to ErrorModel and display corresponding alert
-                                let errorModel = error as? ErrorModel ?? .invalidLogin
-                                alertItem = AlertContext.alert(for: errorModel)
+                                // Display corresponding alert
+                                alertItem = AlertContext.firebaseErrorAlert(for: error.localizedDescription)
                             }
                         }
+                    }) {
+                        Text("Log In")
                     }
                     .frame(minWidth: 320)
                     .foregroundColor(.white)
@@ -107,7 +105,7 @@ struct LoginView: View {
                     )
                     .cornerRadius(20)
                     .padding()
-                    .alert(item: $alertItem) {alertItem in
+                    .alert(item: $alertItem) { alertItem in
                         Alert(
                             title: alertItem.title,
                             message: alertItem.message,
@@ -143,14 +141,12 @@ struct LoginView: View {
                                 RoundedRectangle(cornerRadius: 20)
                                     .stroke(Color.white, lineWidth: 0.5)
                             )
-
                         }
                     }
                     .padding()
-
-                    }
-                    .navigationBarHidden(true)
                 }
+                .navigationBarHidden(true)
+            }
         }
     }
 }
@@ -158,6 +154,3 @@ struct LoginView: View {
 #Preview {
     LoginView()
 }
-
-
-

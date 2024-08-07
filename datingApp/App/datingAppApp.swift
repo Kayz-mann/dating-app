@@ -29,12 +29,14 @@ struct datingAppApp: App {
     
     @StateObject var matchManager = MatchManager()
     @StateObject var authService = AuthService()
+    @StateObject var appState = AppState()
     
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environmentObject(authService)
                 .environmentObject(matchManager)
+                .environmentObject(appState)
         }
     }
 }
