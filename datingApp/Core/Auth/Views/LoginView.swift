@@ -9,12 +9,13 @@ import SwiftUI
 
 struct LoginView: View {
     @EnvironmentObject var authService: AuthService
+    @EnvironmentObject var appState: AppState
     @State private var authModel = UserAuthModel()
     @FocusState private var focusTextField: FormTextField?
 
     @State private var errorMessage: String?
     @State private var alertItem: AlertItem?
-    @State private var isLoggedIn = false
+    @State private var isLoading = false
 
     var body: some View {
         NavigationStack {
@@ -81,30 +82,50 @@ struct LoginView: View {
                             return
                         }
                         
+                        isLoading = true
                         authService.logIn(email: authModel.email, password: authModel.password) { result in
+                            isLoading = false
                             switch result {
-                            case .success:
+                            case .success(let user):
                                 // Handle successful log-in
-                                isLoggedIn = true
-                                break
-                            case .failure(let error):
+                                // Navigate to MainTabView if profile is complete
+                                if authService.isProfileComplete {
+                                    NavigationLink(
+                                        destination: MainTabView()
+                                            .navigationBarBackButtonHidden(true) // Hide the back button
+                                            .navigationBarTitleDisplayMode(.inline)
+                                         
+                                        , // Ensure no title display
+                                        isActive: $authService.isProfileComplete,
+                                        label: { EmptyView() }
+                                    )
+                                }
+                                case .failure(let error):
                                 errorMessage = error.localizedDescription
                                 // Display corresponding alert
                                 alertItem = AlertContext.firebaseErrorAlert(for: error.localizedDescription)
                             }
                         }
                     }) {
-                        Text("Log In")
+                        HStack {
+                            if isLoading {
+                                ProgressView()
+                                    .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                            } else {
+                                Text("Log In")
+                            }
+                        }
+                        .frame(minWidth: 320)
+                        .foregroundColor(.white)
+                        .padding()
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 20)
+                                .stroke(Color.white, lineWidth: 2)
+                        )
+                        .cornerRadius(20)
+                        .padding()
                     }
-                    .frame(minWidth: 320)
-                    .foregroundColor(.white)
-                    .padding()
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 20)
-                            .stroke(Color.white, lineWidth: 2)
-                    )
-                    .cornerRadius(20)
-                    .padding()
+                    .disabled(isLoading)
                     .alert(item: $alertItem) { alertItem in
                         Alert(
                             title: alertItem.title,
@@ -130,12 +151,10 @@ struct LoginView: View {
                                     .background(Color.primaryPink)
                                     .clipShape(RoundedRectangle(cornerRadius: 20))
                                 Image(systemName: "arrow.right")
-                                // SF Symbol for the arrow
                                     .frame(width: 20, height: 20)
                                     .foregroundColor(.white)
                                     .font(.title)
                                     .padding()
-                                
                             }
                             .overlay(
                                 RoundedRectangle(cornerRadius: 20)
@@ -154,3 +173,4 @@ struct LoginView: View {
 #Preview {
     LoginView()
 }
+

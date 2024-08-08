@@ -7,12 +7,11 @@
 
 import SwiftUI
 
-
 struct CardStackView: View {
     @State private var showMatchView = false
+    @State private var shouldNavigateToLogin = false
     @EnvironmentObject var matchManager: MatchManager
     @EnvironmentObject var authService: AuthService
-
     @StateObject var viewModel = CardViewModel(service: CardService())
     
     var body: some View {
@@ -40,15 +39,24 @@ struct CardStackView: View {
                 showMatchView = user != nil
             })
             .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
+                ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: signOut) {
-                        Image(.tinderLogo)
+                        Image("tinderLogo") // Make sure "tinderLogo" is a valid image asset
                             .resizable()
-                            .scaledToFill()
+                            .scaledToFit()
                             .frame(width: 88)
                     }
                 }
             }
+            .background(
+                NavigationLink(
+                    destination: LoginView()
+                        .navigationBarBackButtonHidden(true) // Hide the back button
+                        .navigationBarTitleDisplayMode(.inline),
+                    isActive: $shouldNavigateToLogin,
+                    label: { EmptyView() }
+                )
+            )
         }
     }
     
@@ -56,6 +64,8 @@ struct CardStackView: View {
         authService.logOut { result in
             switch result {
             case .success:
+                // Set the state to trigger navigation to LoginView
+                shouldNavigateToLogin = true
                 print("Successfully signed out")
         
             case .failure(let error):

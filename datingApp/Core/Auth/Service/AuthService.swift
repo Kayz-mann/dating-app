@@ -71,6 +71,7 @@ class AuthService: ObservableObject {
         }
     }
 
+
     func logOut(completion: @escaping (Result<Void, Error>) -> Void) {
         do {
             try Auth.auth().signOut()
@@ -89,9 +90,7 @@ class AuthService: ObservableObject {
                 completion(false)
             } else if let document = snapshot?.documents.first {
                 let data = document.data()
-                let isComplete = (data["fullName"] as? String != nil &&
-                                  data["age"] as? Int != nil &&
-                                  data["profileImageURLs"] as? [String] != nil)
+                let isComplete = (data["email"] as? String != nil)
                 print("User profile is complete: \(isComplete)")
                 completion(isComplete)
             } else {

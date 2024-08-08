@@ -21,6 +21,7 @@ struct AdditionalInfoView: View {
     @State private var validationMessage = ""
     @State private var isLoading = false
     @State private var showingAlert = false
+    @State private var isLoggedIn = false
     
     @EnvironmentObject var authService: AuthService
     @EnvironmentObject var appState: AppState
@@ -196,10 +197,21 @@ struct AdditionalInfoView: View {
                     }
                 }
                 .buttonStyle(CustomButtonStyle(isFormValid: isFormValid))
-                .padding(.bottom, geometry.safeAreaInsets.bottom) // Add safe area insets padding
+                .padding(.bottom, geometry.safeAreaInsets.bottom)
                 .alert(isPresented: $showingAlert) {
                     Alert(title: Text("Error"), message: Text(validationMessage), dismissButton: .default(Text("OK")))
                 }
+                
+                // Navigation Link
+                NavigationLink(
+                    destination: MainTabView()
+                        .navigationBarBackButtonHidden(true) // Hide the back button
+                        .navigationBarTitleDisplayMode(.inline)
+                     
+                    , // Ensure no title display
+                    isActive: $authService.isProfileComplete,
+                    label: { EmptyView() }
+                )
             }
         }
         .navigationTitle("Additional Info")
@@ -246,6 +258,7 @@ struct AdditionalInfoView: View {
                     } else {
                         // Proceed to next step if successful
                         authService.isProfileComplete = true
+                        isLoggedIn = true
                         print("Profile updated, isProfileComplete set to true")
                     }
                 }
@@ -267,6 +280,7 @@ struct AdditionalInfoView: View {
                     } else {
                         // Proceed to next step if successful
                         authService.isProfileComplete = true
+                        isLoggedIn = true
                         print("Profile created, isProfileComplete set to true")
                     }
                 }
@@ -274,6 +288,7 @@ struct AdditionalInfoView: View {
         }
     }
 }
+
 
 struct CustomButtonStyle: ButtonStyle {
     var isFormValid: Bool

@@ -13,21 +13,25 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             if let user = authService.user {
-                if authService.isProfileComplete {
+                if authService.isProfileComplete == true {
                     MainTabView()
-                } else {
-                    TellUsMoreView()
                 }
+                else if  authService.isProfileComplete == false {
+                    LoginView()
+                }
+                
             } else {
                 LoginView()
             }
-        }
+        }.navigationBarBackButtonHidden(true)
         .onChange(of: authService.isProfileComplete) { newValue in
-            print("isProfileComplete changed to: \(newValue)")
+            print("isProfileComplete changed to: \(authService.isProfileComplete)")
         }
     }
 }
 
 #Preview {
     ContentView()
+        .environmentObject(AuthService())
+        .environmentObject(AppState())
 }
