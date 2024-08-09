@@ -26,7 +26,7 @@ struct BasicInfoView: View {
             VStack {
                 ScrollView (showsIndicators: false) {
                     VStack {
-                        // UI elements for full name, age, profile picture
+                        // Full Name Input
                         VStack(alignment: .leading) {
                             Text("Full Name")
                                 .font(.footnote)
@@ -42,9 +42,11 @@ struct BasicInfoView: View {
                         }
                         .padding(.top, 10)
                         
+                        // Age Picker
                         AgePicker(selectedAge: $age, validationMessage: $validationMessage)
                             .padding(.top, 35)
                         
+                        // Profile Image Grid
                         ImageGridView(profileImageURLs: $profileImageURLs)
                     }
                     .padding()
@@ -52,18 +54,20 @@ struct BasicInfoView: View {
                 
                 Spacer()
                 
+                // Next Button
                 Button("Next") {
-                    currentStep = 2
-                // Save to AppState
-                appState.currentUser?.fullName = fullName
-                appState.currentUser?.age = age
-                appState.currentUser?.profileImageURLs = profileImageURLs.map { $0.pngData()?.base64EncodedString() ?? "" }
+                    if isFormValid {
+                        // Save to AppState
+                        appState.currentUser?.fullName = fullName
+                        appState.currentUser?.age = age
+                        appState.currentUser?.profileImageURLs = profileImageURLs.map { $0.pngData()?.base64EncodedString() ?? "" }
+                        
+                        // Move to next step
+                        currentStep = 2
+                    } else {
+                        validationMessage = "Please fill out all fields correctly."
+                    }
                 }
-                
-                //OR this
-//                profileImageURLs.map { image in
-//                    image.pngData()?.base64EncodedString() ?? ""
-//                }
                 .disabled(!isFormValid)
                 .buttonStyle(CustomButtonStyle(isFormValid: isFormValid))
                 .padding(.bottom, geometry.safeAreaInsets.bottom) // Add safe area insets padding
@@ -72,11 +76,30 @@ struct BasicInfoView: View {
         .navigationTitle("Basic Info")
         .foregroundColor(.black)
         .tint(.black)
+        .alert(isPresented: Binding<Bool>(
+            get: { !validationMessage.isEmpty },
+            set: { _ in validationMessage = "" }
+        )) {
+            Alert(title: Text("Validation Error"), message: Text(validationMessage), dismissButton: .default(Text("OK")))
+        }
     }
 }
 
-
-
+struct CustomButtonStyle: ButtonStyle {
+    var isFormValid: Bool
+    
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .frame(width: UIScreen.main.bounds.width * 0.9, height: 50) // Set button width and height
+            .foregroundColor(isFormValid ? .white : .gray) // Text color based on form validity
+            .background(isFormValid ? Color.primaryPink : Color.primaryDisabled) // Background color based on form validity
+            .clipShape(RoundedRectangle(cornerRadius: 20)) // Rounded corners
+            .shadow(color: .gray.opacity(0.4), radius: 5, x: 0, y: 2) // Shadow effect
+            .padding(.vertical) // Vertical padding
+            .scaleEffect(configuration.isPressed ? 0.95 : 1.0) // Scale effect on press
+            .animation(.easeOut(duration: 0.2), value: configuration.isPressed) // Animation effect
+    }
+}
 
 #Preview {
     BasicInfoView(currentStep: .constant(2), profileImageURLs: .constant([]))

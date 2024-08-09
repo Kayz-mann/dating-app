@@ -17,6 +17,7 @@
 		0D13A2462C626A190073DA7A /* BasicInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D13A2452C626A190073DA7A /* BasicInfoView.swift */; };
 		0D13A2482C626A910073DA7A /* AdditionalInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D13A2472C626A910073DA7A /* AdditionalInfoView.swift */; };
 		0D13A24E2C63B4E00073DA7A /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 0D13A24D2C63B4E00073DA7A /* FirebaseStorage */; };
+		0D13A2502C6667A30073DA7A /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D13A24F2C6667A30073DA7A /* Photo.swift */; };
 		0D301CA32C48A062002F1BC8 /* datingAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D301CA22C48A062002F1BC8 /* datingAppApp.swift */; };
 		0D301CA52C48A062002F1BC8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D301CA42C48A062002F1BC8 /* ContentView.swift */; };
 		0D301CA72C48A064002F1BC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D301CA62C48A064002F1BC8 /* Assets.xcassets */; };
@@ -104,6 +105,7 @@
 		0D13A2452C626A190073DA7A /* BasicInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicInfoView.swift; sourceTree = "<group>"; };
 		0D13A2472C626A910073DA7A /* AdditionalInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalInfoView.swift; sourceTree = "<group>"; };
 		0D13A24C2C63B4CC0073DA7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		0D13A24F2C6667A30073DA7A /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		0D301C9F2C48A062002F1BC8 /* datingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = datingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D301CA22C48A062002F1BC8 /* datingAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = datingAppApp.swift; sourceTree = "<group>"; };
 		0D301CA42C48A062002F1BC8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 			children = (
 				0D13A23F2C610E400073DA7A /* AgePicker.swift */,
 				0D13A2412C612DC90073DA7A /* ImagePicker.swift */,
+				0D13A24F2C6667A30073DA7A /* Photo.swift */,
 			);
 			path = Picker;
 			sourceTree = "<group>";
@@ -677,6 +680,7 @@
 				0D301CA52C48A062002F1BC8 /* ContentView.swift in Sources */,
 				0DF83CCC2C527CFD00F8C0A3 /* CurrentUserProfileView.swift in Sources */,
 				0DF83CC82C52683D00F8C0A3 /* UserProfileView.swift in Sources */,
+				0D13A2502C6667A30073DA7A /* Photo.swift in Sources */,
 				0D301CF52C500056002F1BC8 /* CardService.swift in Sources */,
 				0DF83CCE2C527EFC00F8C0A3 /* CurrentUserProfileHeaderView.swift in Sources */,
 				0D301CDE2C4E9D50002F1BC8 /* SwipeActionIndicatorView.swift in Sources */,
