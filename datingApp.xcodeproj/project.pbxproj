@@ -18,6 +18,7 @@
 		0D13A2482C626A910073DA7A /* AdditionalInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D13A2472C626A910073DA7A /* AdditionalInfoView.swift */; };
 		0D13A24E2C63B4E00073DA7A /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 0D13A24D2C63B4E00073DA7A /* FirebaseStorage */; };
 		0D13A2502C6667A30073DA7A /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D13A24F2C6667A30073DA7A /* Photo.swift */; };
+		0D13A2522C66EF820073DA7A /* CloudinaryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D13A2512C66EF820073DA7A /* CloudinaryService.swift */; };
 		0D301CA32C48A062002F1BC8 /* datingAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D301CA22C48A062002F1BC8 /* datingAppApp.swift */; };
 		0D301CA52C48A062002F1BC8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D301CA42C48A062002F1BC8 /* ContentView.swift */; };
 		0D301CA72C48A064002F1BC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D301CA62C48A064002F1BC8 /* Assets.xcassets */; };
@@ -75,6 +76,9 @@
 		0DF83D112C5A54EE00F8C0A3 /* UserAuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF83D102C5A54EE00F8C0A3 /* UserAuthModel.swift */; };
 		0DF83D122C5A54EE00F8C0A3 /* UserAuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF83D102C5A54EE00F8C0A3 /* UserAuthModel.swift */; };
 		0DF83D132C5A54EE00F8C0A3 /* UserAuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF83D102C5A54EE00F8C0A3 /* UserAuthModel.swift */; };
+		3AFCC692656974CFFFF90527 /* Pods_datingApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4D01D95440BC50D3094BE0E /* Pods_datingApp.framework */; };
+		41A0E6704357D1B0609C14CE /* Pods_datingAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C50BBB213E78B50DEB488AE8 /* Pods_datingAppTests.framework */; };
+		8FC7A9A6B9E523348AA4A7B1 /* Pods_datingApp_datingAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8103BFF112231E2EAA37C0AC /* Pods_datingApp_datingAppUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +110,7 @@
 		0D13A2472C626A910073DA7A /* AdditionalInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalInfoView.swift; sourceTree = "<group>"; };
 		0D13A24C2C63B4CC0073DA7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0D13A24F2C6667A30073DA7A /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		0D13A2512C66EF820073DA7A /* CloudinaryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudinaryService.swift; sourceTree = "<group>"; };
 		0D301C9F2C48A062002F1BC8 /* datingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = datingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D301CA22C48A062002F1BC8 /* datingAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = datingAppApp.swift; sourceTree = "<group>"; };
 		0D301CA42C48A062002F1BC8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -144,6 +149,15 @@
 		0DF83D032C58E58500F8C0A3 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		0DF83D0B2C59180200F8C0A3 /* HeadlineTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlineTextView.swift; sourceTree = "<group>"; };
 		0DF83D102C5A54EE00F8C0A3 /* UserAuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthModel.swift; sourceTree = "<group>"; };
+		79239A44593A6D229AE1CABA /* Pods-datingApp-datingAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-datingApp-datingAppUITests.release.xcconfig"; path = "Target Support Files/Pods-datingApp-datingAppUITests/Pods-datingApp-datingAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		8103BFF112231E2EAA37C0AC /* Pods_datingApp_datingAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_datingApp_datingAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CE4096133FF518AAFFAED16 /* Pods-datingApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-datingApp.release.xcconfig"; path = "Target Support Files/Pods-datingApp/Pods-datingApp.release.xcconfig"; sourceTree = "<group>"; };
+		ABECE0AE899EBC17AAA0AC0A /* Pods-datingApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-datingApp.debug.xcconfig"; path = "Target Support Files/Pods-datingApp/Pods-datingApp.debug.xcconfig"; sourceTree = "<group>"; };
+		B4D01D95440BC50D3094BE0E /* Pods_datingApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_datingApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C50BBB213E78B50DEB488AE8 /* Pods_datingAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_datingAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7D636F89645CFF2A14A8598 /* Pods-datingAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-datingAppTests.debug.xcconfig"; path = "Target Support Files/Pods-datingAppTests/Pods-datingAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CC38BA3C48478FA419577D2A /* Pods-datingApp-datingAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-datingApp-datingAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-datingApp-datingAppUITests/Pods-datingApp-datingAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		FE307A12AED396274710244E /* Pods-datingAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-datingAppTests.release.xcconfig"; path = "Target Support Files/Pods-datingAppTests/Pods-datingAppTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +176,7 @@
 				0D13A24E2C63B4E00073DA7A /* FirebaseStorage in Frameworks */,
 				0DF83CF52C52FE4100F8C0A3 /* FirebaseAnalytics in Frameworks */,
 				0DF83CFF2C5475AE00F8C0A3 /* FirebaseAuthCombine-Community in Frameworks */,
+				3AFCC692656974CFFFF90527 /* Pods_datingApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,6 +184,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41A0E6704357D1B0609C14CE /* Pods_datingAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +192,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FC7A9A6B9E523348AA4A7B1 /* Pods_datingApp_datingAppUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,6 +242,7 @@
 				0D301CBC2C48A064002F1BC8 /* datingAppUITests */,
 				0D301CA02C48A062002F1BC8 /* Products */,
 				0DF83CE32C52FDD200F8C0A3 /* Frameworks */,
+				76EBB2C078BE27E28E2B9FDD /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -481,6 +499,9 @@
 		0DF83CE32C52FDD200F8C0A3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B4D01D95440BC50D3094BE0E /* Pods_datingApp.framework */,
+				8103BFF112231E2EAA37C0AC /* Pods_datingApp_datingAppUITests.framework */,
+				C50BBB213E78B50DEB488AE8 /* Pods_datingAppTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -499,6 +520,7 @@
 			isa = PBXGroup;
 			children = (
 				0DF83CFA2C5470E500F8C0A3 /* AuthService.swift */,
+				0D13A2512C66EF820073DA7A /* CloudinaryService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -525,6 +547,19 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		76EBB2C078BE27E28E2B9FDD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				ABECE0AE899EBC17AAA0AC0A /* Pods-datingApp.debug.xcconfig */,
+				9CE4096133FF518AAFFAED16 /* Pods-datingApp.release.xcconfig */,
+				CC38BA3C48478FA419577D2A /* Pods-datingApp-datingAppUITests.debug.xcconfig */,
+				79239A44593A6D229AE1CABA /* Pods-datingApp-datingAppUITests.release.xcconfig */,
+				C7D636F89645CFF2A14A8598 /* Pods-datingAppTests.debug.xcconfig */,
+				FE307A12AED396274710244E /* Pods-datingAppTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -532,9 +567,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0D301CC32C48A064002F1BC8 /* Build configuration list for PBXNativeTarget "datingApp" */;
 			buildPhases = (
+				B506BEAF7842C89F1610BBB9 /* [CP] Check Pods Manifest.lock */,
 				0D301C9B2C48A062002F1BC8 /* Sources */,
 				0D301C9C2C48A062002F1BC8 /* Frameworks */,
 				0D301C9D2C48A062002F1BC8 /* Resources */,
+				416A24152FC07B919D4CDCED /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -562,6 +599,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0D301CC62C48A064002F1BC8 /* Build configuration list for PBXNativeTarget "datingAppTests" */;
 			buildPhases = (
+				9278D08B0A1FAAD674381EA0 /* [CP] Check Pods Manifest.lock */,
 				0D301CAB2C48A064002F1BC8 /* Sources */,
 				0D301CAC2C48A064002F1BC8 /* Frameworks */,
 				0D301CAD2C48A064002F1BC8 /* Resources */,
@@ -580,9 +618,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0D301CC92C48A064002F1BC8 /* Build configuration list for PBXNativeTarget "datingAppUITests" */;
 			buildPhases = (
+				38629D957F82F2BA9D7CD8B7 /* [CP] Check Pods Manifest.lock */,
 				0D301CB52C48A064002F1BC8 /* Sources */,
 				0D301CB62C48A064002F1BC8 /* Frameworks */,
 				0D301CB72C48A064002F1BC8 /* Resources */,
+				DFB67A146C68D08E2CF3AF0C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -669,6 +709,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		38629D957F82F2BA9D7CD8B7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-datingApp-datingAppUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		416A24152FC07B919D4CDCED /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-datingApp/Pods-datingApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-datingApp/Pods-datingApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-datingApp/Pods-datingApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9278D08B0A1FAAD674381EA0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-datingAppTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B506BEAF7842C89F1610BBB9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-datingApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DFB67A146C68D08E2CF3AF0C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-datingApp-datingAppUITests/Pods-datingApp-datingAppUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-datingApp-datingAppUITests/Pods-datingApp-datingAppUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-datingApp-datingAppUITests/Pods-datingApp-datingAppUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0D301C9B2C48A062002F1BC8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -711,6 +854,7 @@
 				0D13A23A2C5E5F0E0073DA7A /* SignUpView.swift in Sources */,
 				0D301CDC2C4E909B002F1BC8 /* UserInfoView.swift in Sources */,
 				0DF83CD32C528B4E00F8C0A3 /* ProfileGridImageView.swift in Sources */,
+				0D13A2522C66EF820073DA7A /* CloudinaryService.swift in Sources */,
 				0D13A2482C626A910073DA7A /* AdditionalInfoView.swift in Sources */,
 				0D301CEC2C4FFE9B002F1BC8 /* User.swift in Sources */,
 			);
@@ -880,6 +1024,7 @@
 		};
 		0D301CC42C48A064002F1BC8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABECE0AE899EBC17AAA0AC0A /* Pods-datingApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -909,6 +1054,7 @@
 		};
 		0D301CC52C48A064002F1BC8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9CE4096133FF518AAFFAED16 /* Pods-datingApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -938,6 +1084,7 @@
 		};
 		0D301CC72C48A064002F1BC8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C7D636F89645CFF2A14A8598 /* Pods-datingAppTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -957,6 +1104,7 @@
 		};
 		0D301CC82C48A064002F1BC8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE307A12AED396274710244E /* Pods-datingAppTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -976,6 +1124,7 @@
 		};
 		0D301CCA2C48A064002F1BC8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC38BA3C48478FA419577D2A /* Pods-datingApp-datingAppUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -993,6 +1142,7 @@
 		};
 		0D301CCB2C48A064002F1BC8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 79239A44593A6D229AE1CABA /* Pods-datingApp-datingAppUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

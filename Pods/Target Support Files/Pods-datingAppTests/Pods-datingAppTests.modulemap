@@ -1,0 +1,6 @@
+framework module Pods_datingAppTests {
+  umbrella header "Pods-datingAppTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
