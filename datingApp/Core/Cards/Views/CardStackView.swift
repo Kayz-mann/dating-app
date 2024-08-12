@@ -12,8 +12,13 @@ struct CardStackView: View {
     @State private var shouldNavigateToLogin = false
     @EnvironmentObject var matchManager: MatchManager
     @EnvironmentObject var authService: AuthService
-    @StateObject var viewModel = CardViewModel(service: CardService())
-    
+    @EnvironmentObject var appState: AppState // Access AppState from the environment
+    @StateObject private var viewModel: CardViewModel
+
+    init() {
+        _viewModel = StateObject(wrappedValue: CardViewModel(service: CardService()))
+    }
+
     var body: some View {
         NavigationStack {
             ZStack {
@@ -78,4 +83,5 @@ struct CardStackView: View {
 
 #Preview {
     CardStackView()
+        .environmentObject(AppState()) // Add this for preview
 }

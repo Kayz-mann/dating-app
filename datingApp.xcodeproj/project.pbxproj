@@ -46,6 +46,7 @@
 		0DC0ED8E2C6A17AF00CE1ABF /* KeyChainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC0ED8D2C6A17AF00CE1ABF /* KeyChainManager.swift */; };
 		0DC0ED902C6A192B00CE1ABF /* EnvironmentUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC0ED8F2C6A192B00CE1ABF /* EnvironmentUtils.swift */; };
 		0DC0ED922C6A1E4E00CE1ABF /* CloudinaryConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC0ED912C6A1E4E00CE1ABF /* CloudinaryConfig.swift */; };
+		0DC0ED962C6A7E8300CE1ABF /* StateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC0ED952C6A7E8300CE1ABF /* StateUtil.swift */; };
 		0DF83CC82C52683D00F8C0A3 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF83CC72C52683D00F8C0A3 /* UserProfileView.swift */; };
 		0DF83CCC2C527CFD00F8C0A3 /* CurrentUserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF83CCB2C527CFD00F8C0A3 /* CurrentUserProfileView.swift */; };
 		0DF83CCE2C527EFC00F8C0A3 /* CurrentUserProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF83CCD2C527EFC00F8C0A3 /* CurrentUserProfileHeaderView.swift */; };
@@ -141,6 +142,7 @@
 		0DC0ED8D2C6A17AF00CE1ABF /* KeyChainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainManager.swift; sourceTree = "<group>"; };
 		0DC0ED8F2C6A192B00CE1ABF /* EnvironmentUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentUtils.swift; sourceTree = "<group>"; };
 		0DC0ED912C6A1E4E00CE1ABF /* CloudinaryConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudinaryConfig.swift; sourceTree = "<group>"; };
+		0DC0ED952C6A7E8300CE1ABF /* StateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateUtil.swift; sourceTree = "<group>"; };
 		0DF83CC72C52683D00F8C0A3 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		0DF83CCB2C527CFD00F8C0A3 /* CurrentUserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserProfileView.swift; sourceTree = "<group>"; };
 		0DF83CCD2C527EFC00F8C0A3 /* CurrentUserProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserProfileHeaderView.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 			children = (
 				0DC0ED8C2C6A179C00CE1ABF /* KeyChainManager */,
 				0D13A2342C5D111A0073DA7A /* Alerts */,
+				0DC0ED952C6A7E8300CE1ABF /* StateUtil.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -715,6 +718,7 @@
 				0D301CDE2C4E9D50002F1BC8 /* SwipeActionIndicatorView.swift in Sources */,
 				0DC0ED8E2C6A17AF00CE1ABF /* KeyChainManager.swift in Sources */,
 				0D301CF92C514DA1002F1BC8 /* SwipeActionButtonView.swift in Sources */,
+				0DC0ED962C6A7E8300CE1ABF /* StateUtil.swift in Sources */,
 				0D13A2462C626A190073DA7A /* BasicInfoView.swift in Sources */,
 				0D301CA32C48A062002F1BC8 /* datingAppApp.swift in Sources */,
 				0D301CFB2C51525F002F1BC8 /* SwipeAction.swift in Sources */,

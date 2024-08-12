@@ -16,6 +16,7 @@ struct LoginView: View {
     @State private var errorMessage: String?
     @State private var alertItem: AlertItem?
     @State private var isLoading = false
+    @State private var navigateToMainTabView = false // Add this state variable
 
     var body: some View {
         NavigationStack {
@@ -88,17 +89,9 @@ struct LoginView: View {
                             switch result {
                             case .success(let user):
                                 // Handle successful log-in
-                                // Navigate to MainTabView if profile is complete
+                                // Check if profile is complete and update navigation state
                                 if authService.isProfileComplete {
-                                    NavigationLink(
-                                        destination: MainTabView()
-                                            .navigationBarBackButtonHidden(true) // Hide the back button
-                                            .navigationBarTitleDisplayMode(.inline)
-                                         
-                                        , // Ensure no title display
-                                        isActive: $authService.isProfileComplete,
-                                        label: { EmptyView() }
-                                    )
+                                    navigateToMainTabView = true
                                 }
                                 case .failure(let error):
                                 errorMessage = error.localizedDescription
@@ -165,6 +158,16 @@ struct LoginView: View {
                     .padding()
                 }
                 .navigationBarHidden(true)
+
+                // Conditional Navigation to MainTabView
+                NavigationLink(
+                    destination: MainTabView()
+                        .navigationBarBackButtonHidden(true)
+                        .navigationBarTitleDisplayMode(.inline),
+                    isActive: $navigateToMainTabView
+                ) {
+                    EmptyView()
+                }
             }
         }
     }
