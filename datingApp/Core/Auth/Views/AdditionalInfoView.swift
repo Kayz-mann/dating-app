@@ -9,7 +9,7 @@ import SwiftUI
 import Firebase
 import FirebaseAuth
 import FirebaseFirestore
-import FirebaseStorage
+import Alamofire
 
 struct AdditionalInfoView: View {
     @Binding var currentStep: Int
@@ -23,7 +23,8 @@ struct AdditionalInfoView: View {
     @State private var isLoading = false
     @State private var showingAlert = false
     @State private var uploadProgress: [Double] = []
-
+    @State private var imageLoadingErrors: [Int: String] = [:]
+    
     @EnvironmentObject var authService: AuthService
     @EnvironmentObject var appState: AppState
     private let db = Firestore.firestore()
@@ -34,11 +35,11 @@ struct AdditionalInfoView: View {
         !sexualOrientation.isEmpty &&
         !interestedIn.isEmpty
     }
-
+    
     private let sexualOrientations = ["Straight", "Bi"]
     private let interests = ["Male", "Female"]
     private let zodiacSigns = ["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"]
-
+    
     var body: some View {
         GeometryReader { geometry in
             VStack {
@@ -232,68 +233,96 @@ struct AdditionalInfoView: View {
         .foregroundColor(.black)
         .tint(.black)
     }
-
+    
+    private func uploadImageToCloudinary(image: UIImage, completion: @escaping (String?, Error?) -> Void) {
+        guard let imageData = image.jpegData(compressionQuality: 0.8) else {
+            completion(nil, NSError(domain: "ImageProcessing", code: 0, userInfo: [NSLocalizedDescriptionKey: "Failed to process image data."]))
+            return
+        }
+        
+        let url = "https://api.cloudinary.com/v1_1/afrotronika/image/upload" // Replace with your Cloudinary URL
+        let preset = "ml_default"
+        let parameters: [String: String] = [
+            "upload_preset": preset
+        ]
+        
+        AF.upload(multipartFormData: { formData in
+            formData.append(imageData, withName: "file", fileName: "image.jpg", mimeType: "image/jpeg")
+            for (key, value) in parameters {
+                formData.append(value.data(using: .utf8)!, withName: key)
+            }
+        }, to: url)
+        .responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                print("Cloudinary Response: \(value)")
+                if let json = value as? [String: Any],
+                   let urlString = json["secure_url"] as? String {
+                    completion(urlString, nil)
+                } else {
+                    completion(nil, NSError(domain: "CloudinaryResponse", code: 0, userInfo: [NSLocalizedDescriptionKey: "Invalid Cloudinary response format."]))
+                }
+            case .failure(let error):
+                print("Error uploading image to Cloudinary: \(error.localizedDescription)")
+                completion(nil, error)
+            }
+        }
+    }
+    
     private func updateProfile() {
         guard let email = Auth.auth().currentUser?.email else { return }
-
+        
         isLoading = true
         validationMessage = ""
-        uploadProgress = Array(repeating: 0.0, count: appState.currentUser?.profileImageURLs.count ?? 0)
-
-        let storage = Storage.storage()
-        let storageRef = storage.reference().child("profile_images")
-
+        
+        guard let profileImageURLs = appState.currentUser?.profileImageURLs else {
+            print("No profile image URLs found.")
+            isLoading = false
+            return
+        }
+        
+        uploadProgress = Array(repeating: 0.0, count: profileImageURLs.count)
+        
         var uploadedImageURLs: [String] = []
+        var imageLoadingErrors: [String] = []
         let uploadGroup = DispatchGroup()
-
-        for (index, imageBase64String) in (appState.currentUser?.profileImageURLs ?? []).enumerated() {
-            guard let imageData = Data(base64Encoded: imageBase64String) else {
-                print("Error decoding base64 image data for image \(index + 1).")
-                continue
-            }
-
-            let imageRef = storageRef.child("\(UUID().uuidString).jpg")
-            
+        
+        for (index, imageString) in profileImageURLs.enumerated() {
             uploadGroup.enter()
             
-            let uploadTask = imageRef.putData(imageData, metadata: nil) { (metadata, error) in
-                if let error = error {
-                    print("Error uploading image \(index + 1): \(error.localizedDescription)")
-                    DispatchQueue.main.async {
-                        self.validationMessage = "Error uploading image \(index + 1). Please try again."
-                        self.showingAlert = true
-                    }
-                    uploadGroup.leave()
-                    return
-                }
-                
-                imageRef.downloadURL { (url, error) in
-                    if let error = error {
-                        print("Error getting download URL for image \(index + 1): \(error.localizedDescription)")
-                        DispatchQueue.main.async {
-                            self.validationMessage = "Error retrieving image URL for image \(index + 1). Please try again."
-                            self.showingAlert = true
+            fetchImage(from: imageString) { result in
+                switch result {
+                case .success(let image):
+                    self.uploadImageToCloudinary(image: image) { urlString, error in
+                        if let urlString = urlString {
+                            uploadedImageURLs.append(urlString)
+                            print("Successfully uploaded image \(index + 1)")
+                        } else {
+                            print("Failed to upload image \(index + 1).")
+                            imageLoadingErrors.append("Failed to upload image \(index + 1): \(error?.localizedDescription ?? "Unknown error")")
                         }
-                    } else if let url = url {
-                        uploadedImageURLs.append(url.absoluteString)
-                        print("Successfully uploaded image \(index + 1) and retrieved download URL: \(url.absoluteString)")
+                        uploadGroup.leave()
                     }
+                case .failure(let error):
+                    print("Failed to load image: \(error.localizedDescription)")
+                    imageLoadingErrors.append("Failed to load image \(index + 1): \(error.localizedDescription)")
                     uploadGroup.leave()
-                }
-            }
-
-            uploadTask.observe(.progress) { snapshot in
-                let percentComplete = Double(snapshot.progress!.completedUnitCount) / Double(snapshot.progress!.totalUnitCount)
-                DispatchQueue.main.async {
-                    self.uploadProgress[index] = percentComplete
                 }
             }
         }
-
+        
         uploadGroup.notify(queue: .main) {
-            // Update or create profile information in Firestore
+            if !imageLoadingErrors.isEmpty {
+                self.validationMessage = "Some images failed to load or upload. Please check and try again."
+                self.showingAlert = true
+                self.isLoading = false
+                print("Image loading errors: \(imageLoadingErrors)")
+                return
+            }
+            
             let userRef = self.db.collection("users").document(email)
             let profileData: [String: Any] = [
+                "email": self.appState.currentUser?.email,
                 "fullName": self.appState.currentUser?.fullName ?? "",
                 "age": self.appState.currentUser?.age ?? 18,
                 "occupation": self.occupation,
@@ -310,13 +339,173 @@ struct AdditionalInfoView: View {
                 } else {
                     self.appState.currentUser?.profileImageURLs = uploadedImageURLs
                     self.authService.isProfileComplete = true
-                    self.currentStep = 1 // Navigate back to the previous step if needed
+                    self.currentStep = 1
                 }
                 self.isLoading = false
                 self.uploadProgress = []
             }
         }
-    }}
+    }
+
+
+    
+//    private func updateProfile() {
+//        guard let email = Auth.auth().currentUser?.email else { return }
+//        
+//        isLoading = true
+//        validationMessage = ""
+//        
+//        guard let profileImageURLs = appState.currentUser?.profileImageURLs else {
+//            print("No profile image URLs found.")
+//            isLoading = false
+//            return
+//        }
+//        
+//        uploadProgress = Array(repeating: 0.0, count: profileImageURLs.count)
+//        
+//        var uploadedImageURLs: [String] = []
+//        let uploadGroup = DispatchGroup()
+//        
+//        for (index, imageString) in profileImageURLs.enumerated() {
+//            uploadGroup.enter()
+//            
+//            fetchImage(from: imageString) { result in
+//                switch result {
+//                case .success(let image):
+//                    self.uploadImageToCloudinary(image: image) { urlString in
+//                        if let urlString = urlString {
+//                            uploadedImageURLs.append(urlString)
+//                            print("Successfully uploaded image")
+//                        } else {
+//                            print("Failed to upload image \(index + 1).")
+//                            DispatchQueue.main.async {
+//                                self.imageLoadingErrors[index] = "Failed to upload image \(index + 1)"
+//                            }
+//                        }
+//                        uploadGroup.leave()
+//                    }
+//                case .failure(let error):
+//                    print("Failed to load image: \(error.localizedDescription)")
+//                    DispatchQueue.main.async {
+//                        self.imageLoadingErrors[index] = "Failed to load image \(index + 1): \(error.localizedDescription)"
+//                    }
+//                    uploadGroup.leave()
+//                }
+//            }
+//        }
+//        
+//        uploadGroup.notify(queue: .main) {
+//            if !self.imageLoadingErrors.isEmpty {
+//                self.validationMessage = "Some images failed to load or upload. Please check and try again."
+//                self.showingAlert = true
+//                self.isLoading = false
+//                return
+//            }
+//            
+//            let userRef = self.db.collection("users").document(email)
+//            let profileData: [String: Any] = [
+//                "fullName": self.appState.currentUser?.fullName ?? "",
+//                "age": self.appState.currentUser?.age ?? 18,
+//                "occupation": self.occupation,
+//                "zodiacSign": self.selectedZodiacSign,
+//                "sexualOrientation": self.sexualOrientation,
+//                "interestedIn": self.interestedIn,
+//                "profileImageURLs": uploadedImageURLs
+//            ]
+//            
+//            userRef.setData(profileData, merge: true) { error in
+//                if let error = error {
+//                    print("Error updating profile: \(error.localizedDescription)")
+//                    self.validationMessage = "Error updating profile. Please try again."
+//                    self.showingAlert = true
+//                } else {
+//                    self.appState.currentUser?.profileImageURLs = uploadedImageURLs
+//                    self.authService.isProfileComplete = true
+//                    self.currentStep = 1
+//                }
+//                self.isLoading = false
+//                self.uploadProgress = []
+//            }
+//        }
+//    }
+//    
+    private func fetchImage(from imageString: String, completion: @escaping (Result<UIImage, Error>) -> Void) {
+        if imageString.hasPrefix("data:image") || imageString.hasPrefix("iVBOR") {
+            // Handle Base64 encoded image data
+            guard let dataStart = imageString.range(of: ";base64,")?.upperBound else {
+                let data = Data(base64Encoded: imageString)
+                if let data = data, let image = UIImage(data: data) {
+                    completion(.success(image))
+                } else {
+                    completion(.failure(NSError(domain: "ImageDecoding", code: 0, userInfo: [NSLocalizedDescriptionKey: "Failed to decode Base64 image data"])))
+                }
+                return
+            }
+            
+            let base64String = String(imageString[dataStart...])
+            if let data = Data(base64Encoded: base64String), let image = UIImage(data: data) {
+                completion(.success(image))
+            } else {
+                completion(.failure(NSError(domain: "ImageDecoding", code: 0, userInfo: [NSLocalizedDescriptionKey: "Failed to decode Base64 image data"])))
+            }
+        } else if let url = URL(string: imageString) {
+            // Handle URL
+            let task = URLSession.shared.dataTask(with: url) { data, response, error in
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
+                
+                guard let data = data, let image = UIImage(data: data) else {
+                    completion(.failure(NSError(domain: "ImageDecoding", code: 0, userInfo: [NSLocalizedDescriptionKey: "Failed to decode image data from URL"])))
+                    return
+                }
+                
+                completion(.success(image))
+            }
+            task.resume()
+        } else {
+            completion(.failure(NSError(domain: "InvalidInput", code: 0, userInfo: [NSLocalizedDescriptionKey: "Invalid image string format"])))
+        }
+    }
+//    
+//    private func uploadImageToCloudinary(image: UIImage, completion: @escaping (String?) -> Void) {
+//        guard let imageData = image.jpegData(compressionQuality: 0.8) else {
+//            completion(nil)
+//            return
+//        }
+//        
+//        let url = "https://api.cloudinary.com/v1_1/afrotronika/image/upload"
+//        let preset = "ml_default"
+//        
+//        let parameters: [String: String] = [
+//            "upload_preset": preset
+//        ]
+//        
+//        AF.upload(multipartFormData: { formData in
+//            formData.append(imageData, withName: "file", fileName: "image.jpg", mimeType: "image/jpeg")
+//            for (key, value) in parameters {
+//                formData.append(value.data(using: .utf8)!, withName: key)
+//            }
+//        }, to: url)
+//        .responseJSON { response in
+//            switch response.result {
+//            case .success(let value):
+//                print("Cloudinary Response: \(value)")
+//                if let json = value as? [String: Any],
+//                   let urlString = json["secure_url"] as? String {
+//                    completion(urlString)
+//                } else {
+//                    completion(nil)
+//                }
+//            case .failure(let error):
+//                print("Error uploading image to Cloudinary: \(error.localizedDescription)")
+//                completion(nil)
+//            }
+//        }
+//    }
+}
+
 
 
 #Preview {

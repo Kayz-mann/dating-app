@@ -41,6 +41,11 @@
 		0D301CF92C514DA1002F1BC8 /* SwipeActionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D301CF82C514DA1002F1BC8 /* SwipeActionButtonView.swift */; };
 		0D301CFB2C51525F002F1BC8 /* SwipeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D301CFA2C51525F002F1BC8 /* SwipeAction.swift */; };
 		0D5E080F2C6A0A4C00D60231 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0D5E080E2C6A0A4C00D60231 /* Alamofire */; };
+		0DC0ED882C6A0BEC00CE1ABF /* ImageUploadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC0ED872C6A0BEC00CE1ABF /* ImageUploadService.swift */; };
+		0DC0ED8B2C6A167D00CE1ABF /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0DC0ED8A2C6A167D00CE1ABF /* KeychainSwift */; };
+		0DC0ED8E2C6A17AF00CE1ABF /* KeyChainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC0ED8D2C6A17AF00CE1ABF /* KeyChainManager.swift */; };
+		0DC0ED902C6A192B00CE1ABF /* EnvironmentUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC0ED8F2C6A192B00CE1ABF /* EnvironmentUtils.swift */; };
+		0DC0ED922C6A1E4E00CE1ABF /* CloudinaryConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC0ED912C6A1E4E00CE1ABF /* CloudinaryConfig.swift */; };
 		0DF83CC82C52683D00F8C0A3 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF83CC72C52683D00F8C0A3 /* UserProfileView.swift */; };
 		0DF83CCC2C527CFD00F8C0A3 /* CurrentUserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF83CCB2C527CFD00F8C0A3 /* CurrentUserProfileView.swift */; };
 		0DF83CCE2C527EFC00F8C0A3 /* CurrentUserProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF83CCD2C527EFC00F8C0A3 /* CurrentUserProfileHeaderView.swift */; };
@@ -132,6 +137,10 @@
 		0D301CF62C5026B9002F1BC8 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		0D301CF82C514DA1002F1BC8 /* SwipeActionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeActionButtonView.swift; sourceTree = "<group>"; };
 		0D301CFA2C51525F002F1BC8 /* SwipeAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeAction.swift; sourceTree = "<group>"; };
+		0DC0ED872C6A0BEC00CE1ABF /* ImageUploadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploadService.swift; sourceTree = "<group>"; };
+		0DC0ED8D2C6A17AF00CE1ABF /* KeyChainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainManager.swift; sourceTree = "<group>"; };
+		0DC0ED8F2C6A192B00CE1ABF /* EnvironmentUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentUtils.swift; sourceTree = "<group>"; };
+		0DC0ED912C6A1E4E00CE1ABF /* CloudinaryConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudinaryConfig.swift; sourceTree = "<group>"; };
 		0DF83CC72C52683D00F8C0A3 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		0DF83CCB2C527CFD00F8C0A3 /* CurrentUserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserProfileView.swift; sourceTree = "<group>"; };
 		0DF83CCD2C527EFC00F8C0A3 /* CurrentUserProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserProfileHeaderView.swift; sourceTree = "<group>"; };
@@ -157,6 +166,7 @@
 				0DF83CF12C52FDFE00F8C0A3 /* FirebaseMessaging in Frameworks */,
 				0DF83CE72C52FDDD00F8C0A3 /* FirebaseDatabase in Frameworks */,
 				0DF83CF32C52FE3D00F8C0A3 /* FirebaseAnalyticsSwift in Frameworks */,
+				0DC0ED8B2C6A167D00CE1ABF /* KeychainSwift in Frameworks */,
 				0DF83CED2C52FDEC00F8C0A3 /* FirebaseFirestoreCombine-Community in Frameworks */,
 				0DF83CE52C52FDD200F8C0A3 /* FirebaseAuth in Frameworks */,
 				0DF83CEF2C52FDEC00F8C0A3 /* FirebaseFirestoreSwift in Frameworks */,
@@ -187,6 +197,7 @@
 		0D13A2332C5D11110073DA7A /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				0DC0ED8C2C6A179C00CE1ABF /* KeyChainManager */,
 				0D13A2342C5D111A0073DA7A /* Alerts */,
 			);
 			path = Utilities;
@@ -436,6 +447,16 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		0DC0ED8C2C6A179C00CE1ABF /* KeyChainManager */ = {
+			isa = PBXGroup;
+			children = (
+				0DC0ED8D2C6A17AF00CE1ABF /* KeyChainManager.swift */,
+				0DC0ED8F2C6A192B00CE1ABF /* EnvironmentUtils.swift */,
+				0DC0ED912C6A1E4E00CE1ABF /* CloudinaryConfig.swift */,
+			);
+			path = KeyChainManager;
+			sourceTree = "<group>";
+		};
 		0DF83CC92C527CD600F8C0A3 /* UserProfile */ = {
 			isa = PBXGroup;
 			children = (
@@ -501,6 +522,7 @@
 			isa = PBXGroup;
 			children = (
 				0DF83CFA2C5470E500F8C0A3 /* AuthService.swift */,
+				0DC0ED872C6A0BEC00CE1ABF /* ImageUploadService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -556,6 +578,7 @@
 				0DF83CFE2C5475AE00F8C0A3 /* FirebaseAuthCombine-Community */,
 				0D13A24D2C63B4E00073DA7A /* FirebaseStorage */,
 				0D5E080E2C6A0A4C00D60231 /* Alamofire */,
+				0DC0ED8A2C6A167D00CE1ABF /* KeychainSwift */,
 			);
 			productName = datingApp;
 			productReference = 0D301C9F2C48A062002F1BC8 /* datingApp.app */;
@@ -632,6 +655,7 @@
 			packageReferences = (
 				0DF83CE22C52FCFD00F8C0A3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				0D5E080D2C6A0A2000D60231 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				0DC0ED892C6A166F00CE1ABF /* XCRemoteSwiftPackageReference "keychain-swift" */,
 			);
 			productRefGroup = 0D301CA02C48A062002F1BC8 /* Products */;
 			projectDirPath = "";
@@ -687,7 +711,9 @@
 				0D13A2502C6667A30073DA7A /* Photo.swift in Sources */,
 				0D301CF52C500056002F1BC8 /* CardService.swift in Sources */,
 				0DF83CCE2C527EFC00F8C0A3 /* CurrentUserProfileHeaderView.swift in Sources */,
+				0DC0ED902C6A192B00CE1ABF /* EnvironmentUtils.swift in Sources */,
 				0D301CDE2C4E9D50002F1BC8 /* SwipeActionIndicatorView.swift in Sources */,
+				0DC0ED8E2C6A17AF00CE1ABF /* KeyChainManager.swift in Sources */,
 				0D301CF92C514DA1002F1BC8 /* SwipeActionButtonView.swift in Sources */,
 				0D13A2462C626A190073DA7A /* BasicInfoView.swift in Sources */,
 				0D301CA32C48A062002F1BC8 /* datingAppApp.swift in Sources */,
@@ -699,6 +725,7 @@
 				0DF83CD72C52970100F8C0A3 /* UserMatchView.swift in Sources */,
 				0D13A2422C612DC90073DA7A /* ImagePicker.swift in Sources */,
 				0D301CEF2C4FFF47002F1BC8 /* CardModel.swift in Sources */,
+				0DC0ED922C6A1E4E00CE1ABF /* CloudinaryConfig.swift in Sources */,
 				0D301CE82C4FFC5C002F1BC8 /* CardStackView.swift in Sources */,
 				0DF83CF72C53EDA700F8C0A3 /* ImageLoader.swift in Sources */,
 				0D301CE12C4EA97A002F1BC8 /* SizeConstants.swift in Sources */,
@@ -706,6 +733,7 @@
 				0DF83CFB2C5470E500F8C0A3 /* AuthService.swift in Sources */,
 				0DF83D112C5A54EE00F8C0A3 /* UserAuthModel.swift in Sources */,
 				0D301CF22C4FFFB7002F1BC8 /* CardViewModel.swift in Sources */,
+				0DC0ED882C6A0BEC00CE1ABF /* ImageUploadService.swift in Sources */,
 				0D13A2382C5D12350073DA7A /* Alert.swift in Sources */,
 				0DF83D042C58E58500F8C0A3 /* LoginView.swift in Sources */,
 				0D301CD62C48A164002F1BC8 /* MainTabView.swift in Sources */,
@@ -1062,6 +1090,14 @@
 				minimumVersion = 5.9.1;
 			};
 		};
+		0DC0ED892C6A166F00CE1ABF /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/keychain-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 24.0.0;
+			};
+		};
 		0DF83CE22C52FCFD00F8C0A3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -1082,6 +1118,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0D5E080D2C6A0A2000D60231 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		0DC0ED8A2C6A167D00CE1ABF /* KeychainSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0DC0ED892C6A166F00CE1ABF /* XCRemoteSwiftPackageReference "keychain-swift" */;
+			productName = KeychainSwift;
 		};
 		0DF83CE42C52FDD200F8C0A3 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;

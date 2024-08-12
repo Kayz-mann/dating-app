@@ -99,6 +99,31 @@ class AuthService: ObservableObject {
             }
         }
     }
+    
+//    func checkUserProfileCompletion(email: String, completion: @escaping (Bool) -> Void) {
+//        db.collection("users").whereField("email", isEqualTo: email).getDocuments { snapshot, error in
+//            if let error = error {
+//                print("Error checking user profile completion: \(error.localizedDescription)")
+//                completion(false)
+//            } else if let document = snapshot?.documents.first {
+//                let data = document.data()
+//                // Check for the existence of required fields
+//                let isComplete = data["fullName"] != nil &&
+//                                 data["age"] != nil &&
+//                                 data["occupation"] != nil &&
+//                                 data["zodiacSign"] != nil &&
+//                                 data["sexualOrientation"] != nil &&
+//                                 data["interestedIn"] != nil &&
+//                                 (data["profileImageURLs"] as? [String])?.count ?? 0 > 0
+//                print("User profile is complete: \(isComplete)")
+//                completion(isComplete)
+//            } else {
+//                print("No document found for email: \(email)")
+//                completion(false)
+//            }
+//        }
+//    }
+
 
     
     func checkIfUserExists(email: String, completion: @escaping (Bool) -> Void) {

@@ -6,9 +6,21 @@
 //
 
 import SwiftUI
+import KeychainSwift
 
 struct ContentView: View {
     @EnvironmentObject var authService: AuthService
+    
+    // Add this to your AppDelegate or a place where it will be called once at app launch
+    func initializeCloudinaryConfigFromEnv() {
+        let url = "https://api.cloudinary.com/v1_1/afrotronika/image/upload"
+        let uploadPreset = "ml_default"
+        
+        let keychain = KeychainSwift()
+        keychain.set(url, forKey: "cloudinaryURL")
+        keychain.set(uploadPreset, forKey: "uploadPreset")
+    }
+
 
     var body: some View {
         NavigationStack {
