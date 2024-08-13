@@ -34,7 +34,7 @@ class CardViewModel: ObservableObject {
     func fetchCardModels() async {
         do {
             // Fetch the current user ID from Firebase Authentication
-            guard let currentUserId = auth.currentUser?.uid else {
+            guard let currentUserId = auth.currentUser?.email else {
                 print("DEBUG: Current user ID is not available")
                 return
             }
