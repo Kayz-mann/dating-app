@@ -106,7 +106,7 @@ struct SignUpView: View {
                     Spacer() // Pushes everything up
                 }
                 
-                // Navigation to "Tell Us More About Yourself" screen
+//                 Navigation to "Tell Us More About Yourself" screen
                 NavigationLink(
                     destination: TellUsMoreView(),
                     isActive: $navigateToTellUsMore

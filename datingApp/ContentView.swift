@@ -11,6 +11,7 @@ import KeychainSwift
 struct ContentView: View {
     @EnvironmentObject var authService: AuthService
 
+
     var body: some View {
         NavigationStack {
             if authService.user == nil {
@@ -34,7 +35,7 @@ struct ContentView: View {
     ContentView()
         .environmentObject(AuthService())
         .environmentObject(AppState())
-}
+        .environmentObject(MatchManager(appState: AppState()))}
 
 
 //// Add this to your AppDelegate or a place where it will be called once at app launch

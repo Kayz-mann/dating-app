@@ -33,6 +33,5 @@ struct MainTabView: View {
 
 #Preview {
     MainTabView()
-        .environmentObject(MatchManager())
-        .environmentObject(AppState())
+        .environmentObject(MatchManager(appState: AppState()))        .environmentObject(AppState())
 }

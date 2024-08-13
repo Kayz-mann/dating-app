@@ -27,7 +27,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct datingAppApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
-    @StateObject var matchManager = MatchManager()
+    @StateObject var matchManager = MatchManager(appState: AppState())
     @StateObject var authService = AuthService()
     @StateObject var appState = AppState()
     

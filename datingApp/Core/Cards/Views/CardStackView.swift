@@ -76,7 +76,8 @@ struct CardStackView: View {
 
 #Preview {
     CardStackView()
-        .environmentObject(MatchManager())
+//        .environmentObject(MatchManager())
+        .environmentObject(MatchManager(appState: AppState()))
         .environmentObject(AuthService())
         .environmentObject(AppState())
 }

@@ -9,21 +9,26 @@ import Foundation
 import Combine
 import FirebaseFirestore
 import SwiftUI
+import FirebaseAuth
 
 @MainActor
 class MatchManager: ObservableObject {
     @Published var matchedUser: User?
     @Published var userList: [User] = [] // To store the list of users for matching
     private var db = Firestore.firestore() // Reference to Firestore
-    @EnvironmentObject private var appState: AppState // Access AppState directly
+    private var appState: AppState
+
+    init(appState: AppState) {
+        self.appState = appState
+    }
 
     var matchedUserPublisher: AnyPublisher<User?, Never> {
         $matchedUser.eraseToAnyPublisher()
     }
     
     func checkForMatch(withUser user: User) {
-        // Retrieve the current user's email from AppState
-        guard let currentUserEmail = appState.currentUser?.email else { return }
+        // Retrieve the current user's email from Auth
+        guard let currentUserEmail = Auth.auth().currentUser?.email else { return }
         
         // Fetch the current user from Firestore
         db.collection("users").whereField("email", isEqualTo: currentUserEmail).getDocuments { snapshot, error in
@@ -32,12 +37,16 @@ class MatchManager: ObservableObject {
                 return
             }
             
+            print("Number of documents found: \(snapshot?.count ?? 0)")
+            print("current email:", currentUserEmail)
+            
             guard let document = snapshot?.documents.first else {
-                print("No document found for email: \(currentUserEmail)")
+                print("No document found for email here: \(currentUserEmail)")
                 return
             }
             
             let data = document.data()
+
             
             // Unwrap the data and create the currentUser object
             guard let currentUserId = document.documentID as String?,
@@ -62,7 +71,7 @@ class MatchManager: ObservableObject {
                 matchedLikes: data["matchedLikes"] as? [User],
                 interestedIn: data["interestedIn"] as? String,
                 matchedUsers: data["matchedUsers"] as? [String],
-                likedUsers: data["likedUsers"] as? [String]
+                likedUsers: data["likedUsers"] as? [String] ?? [] // Handle missing field
             )
             
             // Proceed with matching logic

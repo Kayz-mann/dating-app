@@ -88,6 +88,7 @@ struct LoginView: View {
                         case .success(let user):
                             // Handle successful log-in
                             // The navigation will be handled by ContentView based on authService.isProfileComplete
+                            appState.currentUser?.email = authModel.email
                             authService.isProfileComplete = true // Trigger state change for ContentView to navigate
                             print("Login successful")
 
