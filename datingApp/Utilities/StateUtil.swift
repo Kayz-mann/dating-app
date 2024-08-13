@@ -27,4 +27,3 @@ private struct EnvironmentReader<T: View>: View {
     }
 }
 
-

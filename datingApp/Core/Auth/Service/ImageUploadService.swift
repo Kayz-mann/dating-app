@@ -9,7 +9,8 @@ import SwiftUI
 import Alamofire
 
 
-private func uploadImageToCloudinary(image: UIImage, completion: @escaping (String?, Error?) -> Void) {
+//// Function to upload an image to Cloudinary
+public func uploadImageToCloudinary(image: UIImage, completion: @escaping (String?, Error?) -> Void) {
     guard let imageData = image.jpegData(compressionQuality: 0.8) else {
         completion(nil, NSError(domain: "ImageProcessing", code: 0, userInfo: [NSLocalizedDescriptionKey: "Failed to process image data."]))
         return
@@ -43,3 +44,4 @@ private func uploadImageToCloudinary(image: UIImage, completion: @escaping (Stri
         }
     }
 }
+

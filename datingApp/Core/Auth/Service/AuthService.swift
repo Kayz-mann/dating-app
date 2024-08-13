@@ -100,6 +100,7 @@ class AuthService: ObservableObject {
         }
     }
     
+
     
     func checkIfUserExists(email: String, completion: @escaping (Bool) -> Void) {
         db.collection("users").whereField("email", isEqualTo: email).getDocuments { snapshot, error in

@@ -6,17 +6,19 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct CardStackView: View {
     @State private var showMatchView = false
-    @State private var shouldNavigateToLogin = false
     @EnvironmentObject var matchManager: MatchManager
     @EnvironmentObject var authService: AuthService
-    @EnvironmentObject var appState: AppState // Access AppState from the environment
+    @EnvironmentObject var appState: AppState
+
     @StateObject private var viewModel: CardViewModel
 
     init() {
-        _viewModel = StateObject(wrappedValue: CardViewModel(service: CardService()))
+        // Initialize with a placeholder currentUserId
+        _viewModel = StateObject(wrappedValue: CardViewModel(service: CardService(), auth: Auth.auth()))
     }
 
     var body: some View {
@@ -29,7 +31,6 @@ struct CardStackView: View {
                         }
                     }
                     if !viewModel.cardModels.isEmpty {
-                        // If the cards have all been swiped, remove the swipe action button
                         SwipeActionButtonView(viewModel: viewModel)
                     }
                 }
@@ -46,36 +47,28 @@ struct CardStackView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: signOut) {
-                        Image("tinderLogo") // Make sure "tinderLogo" is a valid image asset
+                        Image("tinderLogo")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 88)
                     }
                 }
             }
-            .background(
-                NavigationLink(
-                    destination: LoginView()
-                        .navigationBarBackButtonHidden(true) // Hide the back button
-                        .navigationBarTitleDisplayMode(.inline),
-                    isActive: $shouldNavigateToLogin,
-                    label: { EmptyView() }
-                )
-            )
+        }
+        .task {
+            // Fetch card models with the correct currentUserId
+            await viewModel.fetchCardModels()
         }
     }
-    
+
     private func signOut() {
         authService.logOut { result in
             switch result {
             case .success:
-                // Set the state to trigger navigation to LoginView
-                shouldNavigateToLogin = true
+                authService.isProfileComplete = false
                 print("Successfully signed out")
-        
             case .failure(let error):
                 print("Sign-out failed: \(error.localizedDescription)")
-                // Handle sign-out failure, e.g., display an alert
             }
         }
     }
@@ -83,5 +76,7 @@ struct CardStackView: View {
 
 #Preview {
     CardStackView()
-        .environmentObject(AppState()) // Add this for preview
+        .environmentObject(MatchManager())
+        .environmentObject(AuthService())
+        .environmentObject(AppState())
 }

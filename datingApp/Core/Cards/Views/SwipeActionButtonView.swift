@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct SwipeActionButtonView: View {
     @ObservedObject var viewModel: CardViewModel
@@ -49,5 +50,8 @@ struct SwipeActionButtonView: View {
 }
 
 #Preview {
-    SwipeActionButtonView(viewModel: CardViewModel(service: CardService(), appState: AppState()))
+
+    SwipeActionButtonView(viewModel: CardViewModel(service: CardService(),
+                                                   auth: Auth.auth()))
 }
+

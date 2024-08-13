@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct CardView: View {
     let sizeConstants = SizeConstants()
@@ -137,5 +138,10 @@ private extension CardView {
 
 
 #Preview {
-    CardView(model: CardModel(user: MockData.users[0]), viewModel:CardViewModel(service: CardService(), appState: AppState()))
+
+
+    CardView(
+        model: CardModel(user: MockData.users[0]),
+        viewModel: CardViewModel(service: CardService(), auth: Auth.auth())
+    )
 }

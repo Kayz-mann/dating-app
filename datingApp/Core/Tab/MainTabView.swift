@@ -10,7 +10,7 @@ import SwiftUI
 struct MainTabView: View {
     var body: some View {
         TabView {
-                CardStackView()
+            CardStackView()
                 .tabItem { Image(systemName: "flame") }
                 .tag(0)
             
@@ -32,5 +32,7 @@ struct MainTabView: View {
 }
 
 #Preview {
-    MainTabView().environmentObject(MatchManager())
+    MainTabView()
+        .environmentObject(MatchManager())
+        .environmentObject(AppState())
 }

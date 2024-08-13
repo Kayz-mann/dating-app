@@ -41,12 +41,12 @@
 		0D301CF92C514DA1002F1BC8 /* SwipeActionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D301CF82C514DA1002F1BC8 /* SwipeActionButtonView.swift */; };
 		0D301CFB2C51525F002F1BC8 /* SwipeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D301CFA2C51525F002F1BC8 /* SwipeAction.swift */; };
 		0D5E080F2C6A0A4C00D60231 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0D5E080E2C6A0A4C00D60231 /* Alamofire */; };
+		0D8C9AA52C6AC3DE000A52E0 /* StateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8C9AA42C6AC3DE000A52E0 /* StateUtil.swift */; };
 		0DC0ED882C6A0BEC00CE1ABF /* ImageUploadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC0ED872C6A0BEC00CE1ABF /* ImageUploadService.swift */; };
 		0DC0ED8B2C6A167D00CE1ABF /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0DC0ED8A2C6A167D00CE1ABF /* KeychainSwift */; };
 		0DC0ED8E2C6A17AF00CE1ABF /* KeyChainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC0ED8D2C6A17AF00CE1ABF /* KeyChainManager.swift */; };
 		0DC0ED902C6A192B00CE1ABF /* EnvironmentUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC0ED8F2C6A192B00CE1ABF /* EnvironmentUtils.swift */; };
 		0DC0ED922C6A1E4E00CE1ABF /* CloudinaryConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC0ED912C6A1E4E00CE1ABF /* CloudinaryConfig.swift */; };
-		0DC0ED962C6A7E8300CE1ABF /* StateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC0ED952C6A7E8300CE1ABF /* StateUtil.swift */; };
 		0DF83CC82C52683D00F8C0A3 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF83CC72C52683D00F8C0A3 /* UserProfileView.swift */; };
 		0DF83CCC2C527CFD00F8C0A3 /* CurrentUserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF83CCB2C527CFD00F8C0A3 /* CurrentUserProfileView.swift */; };
 		0DF83CCE2C527EFC00F8C0A3 /* CurrentUserProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF83CCD2C527EFC00F8C0A3 /* CurrentUserProfileHeaderView.swift */; };
@@ -138,11 +138,11 @@
 		0D301CF62C5026B9002F1BC8 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		0D301CF82C514DA1002F1BC8 /* SwipeActionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeActionButtonView.swift; sourceTree = "<group>"; };
 		0D301CFA2C51525F002F1BC8 /* SwipeAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeAction.swift; sourceTree = "<group>"; };
+		0D8C9AA42C6AC3DE000A52E0 /* StateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateUtil.swift; sourceTree = "<group>"; };
 		0DC0ED872C6A0BEC00CE1ABF /* ImageUploadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploadService.swift; sourceTree = "<group>"; };
 		0DC0ED8D2C6A17AF00CE1ABF /* KeyChainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainManager.swift; sourceTree = "<group>"; };
 		0DC0ED8F2C6A192B00CE1ABF /* EnvironmentUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentUtils.swift; sourceTree = "<group>"; };
 		0DC0ED912C6A1E4E00CE1ABF /* CloudinaryConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudinaryConfig.swift; sourceTree = "<group>"; };
-		0DC0ED952C6A7E8300CE1ABF /* StateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateUtil.swift; sourceTree = "<group>"; };
 		0DF83CC72C52683D00F8C0A3 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		0DF83CCB2C527CFD00F8C0A3 /* CurrentUserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserProfileView.swift; sourceTree = "<group>"; };
 		0DF83CCD2C527EFC00F8C0A3 /* CurrentUserProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserProfileHeaderView.swift; sourceTree = "<group>"; };
@@ -201,7 +201,7 @@
 			children = (
 				0DC0ED8C2C6A179C00CE1ABF /* KeyChainManager */,
 				0D13A2342C5D111A0073DA7A /* Alerts */,
-				0DC0ED952C6A7E8300CE1ABF /* StateUtil.swift */,
+				0D8C9AA42C6AC3DE000A52E0 /* StateUtil.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -718,7 +718,7 @@
 				0D301CDE2C4E9D50002F1BC8 /* SwipeActionIndicatorView.swift in Sources */,
 				0DC0ED8E2C6A17AF00CE1ABF /* KeyChainManager.swift in Sources */,
 				0D301CF92C514DA1002F1BC8 /* SwipeActionButtonView.swift in Sources */,
-				0DC0ED962C6A7E8300CE1ABF /* StateUtil.swift in Sources */,
+				0D8C9AA52C6AC3DE000A52E0 /* StateUtil.swift in Sources */,
 				0D13A2462C626A190073DA7A /* BasicInfoView.swift in Sources */,
 				0D301CA32C48A062002F1BC8 /* datingAppApp.swift in Sources */,
 				0D301CFB2C51525F002F1BC8 /* SwipeAction.swift in Sources */,
