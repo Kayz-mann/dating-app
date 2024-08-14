@@ -11,18 +11,25 @@ import FirebaseFirestore
 struct CardService {
     private let db = Firestore.firestore()
     
-    func fetchCardModel(excluding currentUserId: String) async throws -> [CardModel] {
-        let snapshot = try await db.collection("users").getDocuments()
-        let users = try snapshot.documents.compactMap { document -> User? in
-            try? document.data(as: User.self)
-        }
-        // Filter out the current user from the list
-        let filteredUsers = users.filter { $0.id != currentUserId }
-        return filteredUsers.map { CardModel(user: $0) }
+    func fetchCardModels(excluding currentUserEmail: String, matchedUsers: [String]) async throws -> [CardModel] {
+        let snapshot = try await db.collection("users")
+//            .whereField("interestedIn", isEqualTo: interestedIn)
+            .whereField("email", isNotEqualTo: currentUserEmail)
+            .getDocuments()
+        
+        return snapshot.documents
+            .filter { !matchedUsers.contains($0.documentID) }
+            .compactMap { document in
+                do {
+                    let user = try document.data(as: User.self)
+                    return CardModel(user: user)
+                } catch {
+                    print("Error decoding user for document ID: \(document.documentID), Error: \(error)")
+                    return nil
+                }
+            }
     }
 }
-
-
 //import Foundation
 //import FirebaseFirestore
 //

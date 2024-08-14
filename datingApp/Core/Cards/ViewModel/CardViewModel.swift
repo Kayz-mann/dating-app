@@ -10,6 +10,7 @@ import Foundation
 import Combine
 import SwiftUI
 import FirebaseAuth
+import FirebaseFirestore
 
 
 
@@ -20,6 +21,7 @@ class CardViewModel: ObservableObject {
     @Published var buttonSwipeAction: SwipeAction?
     
     private let auth: Auth
+    private let db = Firestore.firestore()
     
     private let service: CardService
 
@@ -39,8 +41,26 @@ class CardViewModel: ObservableObject {
                 return
             }
             
+            // Fetch the current user data
+                       let currentUser = try await fetchCurrentUser(email: currentUserId)
+                       
+           // Get the user's interest
+           guard let interestedIn = currentUser.interestedIn else {
+               print("DEBUG: Current user interest is not available")
+               return
+           }
+          
+            // Get the matched users
+            let matchedUsers = currentUser.matchedUsers ?? []
+            
+            
             // Fetch card models excluding the current user
-            self.cardModels = try await service.fetchCardModel(excluding: currentUserId)
+            self.cardModels = try await service.fetchCardModels(
+//                interestedIn: interestedIn,
+                excluding: currentUserId,
+                matchedUsers: matchedUsers
+            )
+            
         } catch {
             print("DEBUG: Failed to fetch cards with error \(error)")
         }
@@ -53,7 +73,35 @@ class CardViewModel: ObservableObject {
             cardModels.remove(at: index)
         }
     }
-}
+    
+    //Fetch current user from Fiurestore
+    private func fetchCurrentUser(email: String) async throws -> User {
+            let snapshot = try await db.collection("users")
+                .whereField("email", isEqualTo: email)
+                .getDocuments()
+            
+            guard let document = snapshot.documents.first else {
+                throw NSError(domain: "CardViewModel", code: 404, userInfo: [NSLocalizedDescriptionKey: "User not found"])
+            }
+            
+            let data = document.data()
+            
+            return User(
+                id: document.documentID,
+                fullName: data["fullName"] as? String ?? "",
+                age: data["age"] as? Int ?? 0,
+                email: data["email"] as? String ?? "",
+                profileImageURLs: data["profileImageURLs"] as? [String] ?? [],
+                occupation: data["occupation"] as? String,
+                zodiacSign: data["zodiacSign"] as? String,
+                sexualOrientation: data["sexualOrientation"] as? String,
+                userBio: data["userBio"] as? String,
+                matchedLikes: data["matchedLikes"] as? [User],
+                interestedIn: data["interestedIn"] as? String,
+                matchedUsers: data["matchedUsers"] as? [String],
+                likedUsers: data["likedUsers"] as? [String]
+            )
+        }}
 
 
 //import Foundation
