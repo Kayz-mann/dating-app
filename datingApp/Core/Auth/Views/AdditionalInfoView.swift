@@ -37,7 +37,7 @@ struct AdditionalInfoView: View {
     }
     
     private let sexualOrientations = ["Straight", "Bi"]
-    private let interests = ["Male", "Female"]
+    private let interests = ["Men", "Women"]
     private let zodiacSigns = ["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"]
     
     var body: some View {
@@ -294,10 +294,11 @@ struct AdditionalInfoView: View {
                 "email": self.appState.currentUser?.email,
                 "fullName": self.appState.currentUser?.fullName ?? "",
                 "age": self.appState.currentUser?.age ?? 18,
+                "gender": self.appState.currentUser?.gender,
                 "occupation": self.occupation,
                 "zodiacSign": self.selectedZodiacSign,
                 "sexualOrientation": self.sexualOrientation,
-                "interestedIn": self.interestedIn,
+                "interestedIn": self.interestedIn == "Men" ? "Male": "Female",
                 "profileImageURLs": uploadedImageURLs
             ]
             userRef.setData(profileData, merge: true) { error in

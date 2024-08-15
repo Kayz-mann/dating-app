@@ -13,6 +13,7 @@ struct User: Identifiable, Hashable, Codable {
     @DocumentID var id: String?
     var fullName: String
     var age: Int
+    var gender: String?
     var email: String
     var profileImageURLs: [String]
     var occupation: String?

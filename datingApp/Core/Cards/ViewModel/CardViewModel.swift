@@ -57,7 +57,8 @@ class CardViewModel: ObservableObject {
             // Fetch card models excluding the current user
             self.cardModels = try await service.fetchCardModels(
 //                interestedIn: interestedIn,
-                excluding: currentUserId,
+//                excluding: currentUserId,
+                currentUser: currentUser,
                 matchedUsers: matchedUsers
             )
             

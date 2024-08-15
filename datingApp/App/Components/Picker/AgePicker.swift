@@ -33,6 +33,7 @@ struct AgePicker: View {
             }) {
                 HStack {
                     Text("Age: \(selectedAge)")
+                        .font(.footnote)
                         .foregroundColor(.black)
                     Spacer()
                     Image(systemName: "chevron.down")

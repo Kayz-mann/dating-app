@@ -5,17 +5,20 @@
 //  Created by Balogun Kayode on 23/07/2024.
 //
 
+
 import Foundation
 import FirebaseFirestore
 
 struct CardService {
     private let db = Firestore.firestore()
     
-    func fetchCardModels(excluding currentUserEmail: String, matchedUsers: [String]) async throws -> [CardModel] {
+    func fetchCardModels(currentUser: User, matchedUsers: [String]) async throws -> [CardModel] {
         let snapshot = try await db.collection("users")
-//            .whereField("interestedIn", isEqualTo: interestedIn)
-            .whereField("email", isNotEqualTo: currentUserEmail)
+//            .whereField("interestedIn", isEqualTo: currentUser.gender)
+            .whereField("email", isNotEqualTo: currentUser.email)
             .getDocuments()
+        
+        print("DEBUG: Number of documents fetched: \(snapshot.documents.count)")
         
         return snapshot.documents
             .filter { !matchedUsers.contains($0.documentID) }
@@ -30,6 +33,7 @@ struct CardService {
             }
     }
 }
+
 //import Foundation
 //import FirebaseFirestore
 //

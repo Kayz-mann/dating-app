@@ -14,6 +14,10 @@ struct BasicInfoView: View {
     @State private var age: Int = 18
     @Binding var profileImageURLs: [UIImage]
     @State private var validationMessage = ""
+    @State private var gender = ""
+    @State private var genderPickerPresented = false
+
+    private let genderOption = ["Male", "Female"]
     
     private var isFormValid: Bool {
         !fullName.isEmpty &&
@@ -44,8 +48,11 @@ struct BasicInfoView: View {
                         
                         // Age Picker
                         AgePicker(selectedAge: $age, validationMessage: $validationMessage)
-                            .padding(.top, 35)
+                            .padding(.top, 8)
                         
+                        //Gender Picker
+                        CustomPicker(value: $gender, label: "Gender", data: genderOption)
+                
                         // Profile Image Grid
                         ImageGridView(profileImageURLs: $profileImageURLs)
                     }
@@ -60,6 +67,7 @@ struct BasicInfoView: View {
                         // Save to AppState
                         appState.currentUser?.fullName = fullName
                         appState.currentUser?.age = age
+                        appState.currentUser?.gender = gender
                         appState.currentUser?.profileImageURLs = profileImageURLs.map { $0.pngData()?.base64EncodedString() ?? "" }
                         
                         // Move to next step

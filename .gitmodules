@@ -1,0 +1,3 @@
+[submodule "datingApp/datingApp/FirebaseCloudFunction/server"]
+	path = datingApp/datingApp/FirebaseCloudFunction/server
+	url = https://github.com/Kayz-mann/dating-app.git
