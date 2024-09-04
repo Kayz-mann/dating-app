@@ -9,13 +9,11 @@ import SwiftUI
 
 struct UserProfileView: View {
     @Environment(\.dismiss) var dismiss
-    @State private var currentImageIndex = 0
+    @State private var currentImageIndex = 1
     
     let user: User
     let sizeConstants = SizeConstants()
 
-    
-    
     var body: some View {
         VStack {
             HStack {
@@ -28,7 +26,7 @@ struct UserProfileView: View {
                 
                 Spacer()
                 
-                Button{
+                Button {
                     dismiss()
                 } label: {
                     Image(systemName: "arrow.down.circle.fill")
@@ -42,18 +40,22 @@ struct UserProfileView: View {
             ScrollView {
                 VStack {
                     ZStack(alignment: .top) {
-                        Image(user.profileImageURLs[currentImageIndex])
-                            .resizable()
-                            .cornerRadius(2)
-                            .scaledToFill()
-                            .clipped()
-                            .frame(width: sizeConstants.cardWidth, height: sizeConstants.cardHeight)
-                            .aspectRatio(contentMode: .fill)
-                            .overlay{
-                                ImageScrollingView(imageCount: user.profileImageURLs.count, currentImageIndex: $currentImageIndex)
-                            }
+                        AsyncImage(url: URL(string: user.profileImageURLs[currentImageIndex])) { image in
+                            image
+                                .resizable()
+                                .cornerRadius(2)
+                                .scaledToFill()
+                                .clipped()
+                                .frame(width: sizeConstants.cardWidth, height: sizeConstants.cardHeight)
+                                .aspectRatio(contentMode: .fill)
+                        } placeholder: {
+                            ProgressView()
+                                .frame(width: sizeConstants.cardWidth, height: sizeConstants.cardHeight)
+                        }
                         
-                        CardImageIndicatorView(currentImageIndex:currentImageIndex, imageCount: user.profileImageURLs.count)
+                        ImageScrollingView(imageCount: user.profileImageURLs.count, currentImageIndex: $currentImageIndex)
+                        
+                        CardImageIndicatorView(currentImageIndex: currentImageIndex, imageCount: user.profileImageURLs.count)
                     }
                     
                     VStack(alignment: .leading, spacing: 22) {
@@ -71,18 +73,16 @@ struct UserProfileView: View {
                 
                 VStack(alignment: .leading) {
                     Text("Essentials")
-                    .fontWeight(.semibold)
-                    .padding()
+                        .fontWeight(.semibold)
+                        .padding()
                     
                     VStack {
                         BioData(text: "Woman", imageName: "person")
                         BioData(text: "Straight", imageName: "arrow.down.forward.and.arrow.up.backward.circle")
                         BioData(text: "Entertainment", imageName: "book")
-
                     }
                     .background(Color(.secondarySystemBackground))
                     .clipShape(RoundedRectangle(cornerRadius: 10))
-
                 }
             }
         }
@@ -94,8 +94,8 @@ struct BioData: View {
     let imageName: String
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 12){
-            HStack{
+        VStack(alignment: .leading, spacing: 12) {
+            HStack {
                 Image(systemName: imageName)
                 Text(text)
                 Spacer()

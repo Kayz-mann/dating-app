@@ -220,13 +220,13 @@ struct AdditionalInfoView: View {
                 }
                 
                 // Navigation Link
-//                NavigationLink(
-//                    destination: MainTabView()
-//                        .navigationBarBackButtonHidden(true)
-//                        .navigationBarTitleDisplayMode(.inline),
-//                    isActive: $authService.isProfileComplete,
-//                    label: { EmptyView() }
-//                )
+                NavigationLink(
+                    destination: MainTabView()
+                        .navigationBarBackButtonHidden(true)
+                        .navigationBarTitleDisplayMode(.inline),
+                    isActive: $authService.isProfileComplete,
+                    label: { EmptyView() }
+                )
             }
         }
         .navigationTitle("Additional Info")

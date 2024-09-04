@@ -13,16 +13,20 @@ struct MainTabView: View {
             CardStackView()
                 .tabItem { Image(systemName: "flame") }
                 .tag(0)
-            
-            Text("Search View")
+                
+            SearchView()
                 .tabItem { Image(systemName: "magnifyingglass") }
                 .tag(1)
             
-            Text("Inbox View")
+            Text("Chat View")
+//            ChatView()
                 .tabItem { Image(systemName: "bubble") }
                 .tag(2)
             
-                CurrentUserProfileView(user: MockData.users[1])
+            
+            
+            CurrentUserProfileView()
+//                CurrentUserProfileView(user: MockData.users[1])
                 .tabItem { Image(systemName: "person") }
                 .tag(3)
 
@@ -33,5 +37,6 @@ struct MainTabView: View {
 
 #Preview {
     MainTabView()
-        .environmentObject(MatchManager(appState: AppState()))        .environmentObject(AppState())
+        .environmentObject(MatchManager(appState: AppState()))       
+        .environmentObject(AppState())
 }

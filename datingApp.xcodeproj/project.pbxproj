@@ -18,6 +18,9 @@
 		0D13A2482C626A910073DA7A /* AdditionalInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D13A2472C626A910073DA7A /* AdditionalInfoView.swift */; };
 		0D13A24E2C63B4E00073DA7A /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 0D13A24D2C63B4E00073DA7A /* FirebaseStorage */; };
 		0D13A2502C6667A30073DA7A /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D13A24F2C6667A30073DA7A /* Photo.swift */; };
+		0D1ADE6A2C888CBB00B253AE /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1ADE692C888CBB00B253AE /* SearchView.swift */; };
+		0D1ADE6D2C889FFC00B253AE /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1ADE6C2C889FFC00B253AE /* ChatView.swift */; };
+		0D1ADE702C88AC2500B253AE /* CurrentUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1ADE6F2C88AC2500B253AE /* CurrentUserViewModel.swift */; };
 		0D301CA32C48A062002F1BC8 /* datingAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D301CA22C48A062002F1BC8 /* datingAppApp.swift */; };
 		0D301CA52C48A062002F1BC8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D301CA42C48A062002F1BC8 /* ContentView.swift */; };
 		0D301CA72C48A064002F1BC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D301CA62C48A064002F1BC8 /* Assets.xcassets */; };
@@ -42,6 +45,8 @@
 		0D301CFB2C51525F002F1BC8 /* SwipeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D301CFA2C51525F002F1BC8 /* SwipeAction.swift */; };
 		0D5E080F2C6A0A4C00D60231 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0D5E080E2C6A0A4C00D60231 /* Alamofire */; };
 		0D8C9AA52C6AC3DE000A52E0 /* StateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8C9AA42C6AC3DE000A52E0 /* StateUtil.swift */; };
+		0D8C9AA72C6CCACB000A52E0 /* CustomPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8C9AA62C6CCACB000A52E0 /* CustomPicker.swift */; };
+		0D8C9AAC2C6E0F2D000A52E0 /* GooglePrivateKey.key in Sources */ = {isa = PBXBuildFile; fileRef = 0D8C9AAB2C6E0F2D000A52E0 /* GooglePrivateKey.key */; };
 		0DC0ED882C6A0BEC00CE1ABF /* ImageUploadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC0ED872C6A0BEC00CE1ABF /* ImageUploadService.swift */; };
 		0DC0ED8B2C6A167D00CE1ABF /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0DC0ED8A2C6A167D00CE1ABF /* KeychainSwift */; };
 		0DC0ED8E2C6A17AF00CE1ABF /* KeyChainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC0ED8D2C6A17AF00CE1ABF /* KeyChainManager.swift */; };
@@ -113,6 +118,9 @@
 		0D13A2472C626A910073DA7A /* AdditionalInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalInfoView.swift; sourceTree = "<group>"; };
 		0D13A24C2C63B4CC0073DA7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0D13A24F2C6667A30073DA7A /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		0D1ADE692C888CBB00B253AE /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		0D1ADE6C2C889FFC00B253AE /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		0D1ADE6F2C88AC2500B253AE /* CurrentUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserViewModel.swift; sourceTree = "<group>"; };
 		0D301C9F2C48A062002F1BC8 /* datingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = datingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D301CA22C48A062002F1BC8 /* datingAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = datingAppApp.swift; sourceTree = "<group>"; };
 		0D301CA42C48A062002F1BC8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -139,6 +147,8 @@
 		0D301CF82C514DA1002F1BC8 /* SwipeActionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeActionButtonView.swift; sourceTree = "<group>"; };
 		0D301CFA2C51525F002F1BC8 /* SwipeAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeAction.swift; sourceTree = "<group>"; };
 		0D8C9AA42C6AC3DE000A52E0 /* StateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateUtil.swift; sourceTree = "<group>"; };
+		0D8C9AA62C6CCACB000A52E0 /* CustomPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPicker.swift; sourceTree = "<group>"; };
+		0D8C9AAB2C6E0F2D000A52E0 /* GooglePrivateKey.key */ = {isa = PBXFileReference; lastKnownFileType = text; path = GooglePrivateKey.key; sourceTree = "<group>"; };
 		0DC0ED872C6A0BEC00CE1ABF /* ImageUploadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploadService.swift; sourceTree = "<group>"; };
 		0DC0ED8D2C6A17AF00CE1ABF /* KeyChainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainManager.swift; sourceTree = "<group>"; };
 		0DC0ED8F2C6A192B00CE1ABF /* EnvironmentUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentUtils.swift; sourceTree = "<group>"; };
@@ -229,8 +239,33 @@
 				0D13A23F2C610E400073DA7A /* AgePicker.swift */,
 				0D13A2412C612DC90073DA7A /* ImagePicker.swift */,
 				0D13A24F2C6667A30073DA7A /* Photo.swift */,
+				0D8C9AA62C6CCACB000A52E0 /* CustomPicker.swift */,
 			);
 			path = Picker;
+			sourceTree = "<group>";
+		};
+		0D1ADE672C888C8C00B253AE /* MatchedSearch */ = {
+			isa = PBXGroup;
+			children = (
+				0D1ADE692C888CBB00B253AE /* SearchView.swift */,
+			);
+			path = MatchedSearch;
+			sourceTree = "<group>";
+		};
+		0D1ADE6B2C889FE500B253AE /* Chats */ = {
+			isa = PBXGroup;
+			children = (
+				0D1ADE6C2C889FFC00B253AE /* ChatView.swift */,
+			);
+			path = Chats;
+			sourceTree = "<group>";
+		};
+		0D1ADE6E2C88AC1700B253AE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0D1ADE6F2C88AC2500B253AE /* CurrentUserViewModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		0D301C962C48A062002F1BC8 = {
@@ -257,6 +292,7 @@
 		0D301CA12C48A062002F1BC8 /* datingApp */ = {
 			isa = PBXGroup;
 			children = (
+				0D8C9AA82C6E04FB000A52E0 /* FirebaseCloudFunction */,
 				0D13A24C2C63B4CC0073DA7A /* Info.plist */,
 				0D13A2332C5D11110073DA7A /* Utilities */,
 				0D301CD72C4E8AE4002F1BC8 /* Shared */,
@@ -315,6 +351,7 @@
 				0D301CD32C48A136002F1BC8 /* Cards */,
 				0D301CD22C48A12B002F1BC8 /* Profile */,
 				0D301CD12C48A122002F1BC8 /* Search */,
+				0D1ADE6B2C889FE500B253AE /* Chats */,
 				0D301CD02C48A117002F1BC8 /* Tab */,
 			);
 			path = Core;
@@ -347,6 +384,7 @@
 		0D301CD12C48A122002F1BC8 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				0D1ADE672C888C8C00B253AE /* MatchedSearch */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -450,6 +488,14 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		0D8C9AA82C6E04FB000A52E0 /* FirebaseCloudFunction */ = {
+			isa = PBXGroup;
+			children = (
+				0D8C9AAB2C6E0F2D000A52E0 /* GooglePrivateKey.key */,
+			);
+			path = FirebaseCloudFunction;
+			sourceTree = "<group>";
+		};
 		0DC0ED8C2C6A179C00CE1ABF /* KeyChainManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -471,6 +517,7 @@
 		0DF83CCA2C527CE900F8C0A3 /* CurrentUserProfile */ = {
 			isa = PBXGroup;
 			children = (
+				0D1ADE6E2C88AC1700B253AE /* Model */,
 				0DF83CCF2C5287B500F8C0A3 /* EditProfile */,
 				0DF83CCB2C527CFD00F8C0A3 /* CurrentUserProfileView.swift */,
 				0DF83CCD2C527EFC00F8C0A3 /* CurrentUserProfileHeaderView.swift */,
@@ -709,6 +756,7 @@
 				0D13A2362C5D11440073DA7A /* ErrorModel.swift in Sources */,
 				0DF83CD12C5287CA00F8C0A3 /* EditProfileView.swift in Sources */,
 				0D301CA52C48A062002F1BC8 /* ContentView.swift in Sources */,
+				0D1ADE6D2C889FFC00B253AE /* ChatView.swift in Sources */,
 				0DF83CCC2C527CFD00F8C0A3 /* CurrentUserProfileView.swift in Sources */,
 				0DF83CC82C52683D00F8C0A3 /* UserProfileView.swift in Sources */,
 				0D13A2502C6667A30073DA7A /* Photo.swift in Sources */,
@@ -718,6 +766,7 @@
 				0D301CDE2C4E9D50002F1BC8 /* SwipeActionIndicatorView.swift in Sources */,
 				0DC0ED8E2C6A17AF00CE1ABF /* KeyChainManager.swift in Sources */,
 				0D301CF92C514DA1002F1BC8 /* SwipeActionButtonView.swift in Sources */,
+				0D1ADE6A2C888CBB00B253AE /* SearchView.swift in Sources */,
 				0D8C9AA52C6AC3DE000A52E0 /* StateUtil.swift in Sources */,
 				0D13A2462C626A190073DA7A /* BasicInfoView.swift in Sources */,
 				0D301CA32C48A062002F1BC8 /* datingAppApp.swift in Sources */,
@@ -738,8 +787,10 @@
 				0DF83D112C5A54EE00F8C0A3 /* UserAuthModel.swift in Sources */,
 				0D301CF22C4FFFB7002F1BC8 /* CardViewModel.swift in Sources */,
 				0DC0ED882C6A0BEC00CE1ABF /* ImageUploadService.swift in Sources */,
+				0D1ADE702C88AC2500B253AE /* CurrentUserViewModel.swift in Sources */,
 				0D13A2382C5D12350073DA7A /* Alert.swift in Sources */,
 				0DF83D042C58E58500F8C0A3 /* LoginView.swift in Sources */,
+				0D8C9AA72C6CCACB000A52E0 /* CustomPicker.swift in Sources */,
 				0D301CD62C48A164002F1BC8 /* MainTabView.swift in Sources */,
 				0D301CE42C4F20C9002F1BC8 /* ImageScrollingView.swift in Sources */,
 				0D13A2442C612FF60073DA7A /* ImageGridView.swift in Sources */,
@@ -749,6 +800,7 @@
 				0DF83CD32C528B4E00F8C0A3 /* ProfileGridImageView.swift in Sources */,
 				0D13A2482C626A910073DA7A /* AdditionalInfoView.swift in Sources */,
 				0D301CEC2C4FFE9B002F1BC8 /* User.swift in Sources */,
+				0D8C9AAC2C6E0F2D000A52E0 /* GooglePrivateKey.key in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
